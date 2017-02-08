@@ -1,7 +1,8 @@
 
 import sys, random
+
 import serial
-from serial import SerialException
+
 from PySide import QtGui, QtCore
 
 class Base(QtGui.QWidget):
@@ -55,24 +56,20 @@ class Base(QtGui.QWidget):
         qp = QtGui.QPainter(self)
         baseImage = QtGui.QImage("base.png")
         qp.drawImage(0,0,baseImage)
-        #qp.end()
+        qp.end()
         qp2 = QtGui.QPainter(self)
         speedPointerImage = QtGui.QImage("speedPointer.png")
         qp2.translate(400,150)
         qp2.rotate(-222 + (int(self.speed)/1.261))
         qp2.drawImage(0,0,speedPointerImage)
-        qp2.setRenderHint(QtGui.QPainter.Antialiasing,True)
-   
+        qp2.end()
+
         if (errorIconOn == 1):
-            self.blinkTime = self.blinkTime + 1
-            print(self.blinkTime)
-            if (self.blinkTime >= 20):
-                qp3 = QtGui.QPainter(self)
-                qp3.setRenderHint(QtGui.QPainter.Antialiasing,True)
-                errorIconImage = QtGui.QImage("errorIcon.png")
-                qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
-                if (self.blinkTime >= 40):
-                    self.blinkTime = 0
+            qp3 = QtGui.QPainter(self)
+            errorIconImage = QtGui.QImage("errorIcon.png")
+            qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
+            qp3.end()
+
         
         self.update()
 
@@ -125,10 +122,11 @@ class updateSerial(QtCore.QThread):
     
     def setSerialPort(self):
         global PuertoSerie
-        try:
-            PuertoSerie = serial.Serial("COM8", 9600)
-        except serial.SerialException:
-            print "serial off"
+        PuertoSerie = serial.Serial("/dev/cu.usbmodemfa131",9600)
+    try: 
+        PuertoSerie.open()
+    except Exception, e:
+        print "error open serial port: " + str(e)
 
     def run(self):  
         while True:
