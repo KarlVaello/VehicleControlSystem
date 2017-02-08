@@ -1,7 +1,7 @@
 
 import sys, random
 import serial
-
+from serial import SerialException
 from PySide import QtGui, QtCore
 
 class Base(QtGui.QWidget):
@@ -14,13 +14,14 @@ class Base(QtGui.QWidget):
     def initUI(self):
 
         self.speed = 280
-   
+        global errorIconOn
+        errorIconOn = 1
         # speed
         self.speedLabel = QtGui.QLabel(str(self.speed), self)
-        speedFont = QtGui.QFont("Arial", 50);
+        speedFont = QtGui.QFont("Arial", 40);
         self.speedLabel.setFont(speedFont);
         self.speedLabel.setAlignment(QtCore.Qt.AlignHCenter)
-        self.speedLabel.move(345, 90)
+        self.speedLabel.move(356, 100)
 
         
         # time
@@ -47,8 +48,7 @@ class Base(QtGui.QWidget):
         self.setGeometry(300, 300, 800, 300)  # window size
         self.show()
         
-        global a 
-        a = 0
+        self.blinkTime = 0
         
     def paintEvent(self, event):
         
@@ -56,16 +56,26 @@ class Base(QtGui.QWidget):
         baseImage = QtGui.QImage("base.png")
         qp.drawImage(0,0,baseImage)
         #qp.end()
-
         qp2 = QtGui.QPainter(self)
         speedPointerImage = QtGui.QImage("speedPointer.png")
         qp2.translate(400,150)
-        qp2.rotate(-222 + int(self.speed) )
+        qp2.rotate(-222 + (int(self.speed)/1.261))
         qp2.drawImage(0,0,speedPointerImage)
+        qp2.setRenderHint(QtGui.QPainter.Antialiasing,True)
+   
+        if (errorIconOn == 1):
+            self.blinkTime = self.blinkTime + 1
+            print(self.blinkTime)
+            if (self.blinkTime >= 20):
+                qp3 = QtGui.QPainter(self)
+                qp3.setRenderHint(QtGui.QPainter.Antialiasing,True)
+                errorIconImage = QtGui.QImage("errorIcon.png")
+                qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
+                if (self.blinkTime >= 40):
+                    self.blinkTime = 0
         
-        
-        #qp2.end()
-        
+        self.update()
+
     # update GUI current time label  
     def updateSpeed(self, text):
         self.speed = int(text)
@@ -115,7 +125,10 @@ class updateSerial(QtCore.QThread):
     
     def setSerialPort(self):
         global PuertoSerie
-        PuertoSerie = serial.Serial("COM8", 9600)
+        try:
+            PuertoSerie = serial.Serial("COM8", 9600)
+        except serial.SerialException:
+            print "serial off"
 
     def run(self):  
         while True:
@@ -126,12 +139,7 @@ class updateSerial(QtCore.QThread):
             #print "Valor Arduino: " + sArduino.rstrip('\n')
             self.progress.emit(sArduino)
       
-
-
-
-
-            
-                       
+ 
 class canBusSetup:
     
     def setSerialPort(self):
