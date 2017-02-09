@@ -1,7 +1,7 @@
 
 import sys, random
 
-import serial
+import serial, time
 
 from PySide import QtGui, QtCore
 
@@ -14,53 +14,51 @@ class Base(QtGui.QWidget):
         
     def initUI(self):
 
-        self.speed = 280
+        self.speed = 0
+        self.speedFade = 0
         global errorIconOn
         errorIconOn = 1
-        # speed
-        self.speedLabel = QtGui.QLabel(str(self.speed), self)
-        speedFont = QtGui.QFont("Arial", 40);
-        self.speedLabel.setFont(speedFont);
-        self.speedLabel.setAlignment(QtCore.Qt.AlignHCenter)
-        self.speedLabel.move(356, 100)
-
-        
-        # time
-        self.timeLabel = QtGui.QLabel("00:00:00", self)
-        time = QtCore.QTime.currentTime()
-        self.timeLabel.setText(str(time.hour()) + ":" + str(time.minute()) + ":" + str(time.second())) 
-        timeFont = QtGui.QFont("Arial", 10);
-        self.timeLabel.setFont(timeFont);
-        self.timeLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.timeLabel.move(374, 25)
-        
-        # label colors
-        palette = QtGui.QPalette()
-        palette.setColor(QtGui.QPalette.Foreground, QtCore.Qt.white)
-        self.speedLabel.setPalette(palette) 
-        self.timeLabel.setPalette(palette) 
-    
-        updateSerial().setSerialPort()
-
-    
+        #updateSerial().setSerialPort()    
         self.setupUpdateThread()  # thread
-        self.serialUpdateThread()  # thread
+        #self.serialUpdateThread()  # thread
         
         self.setGeometry(300, 300, 800, 300)  # window size
         self.show()
-        
-        self.blinkTime = 0
-        
+                
     def paintEvent(self, event):
+        
+        if(self.speedFade == 0):
+            self.speed = self.speed + 1
+            if(self.speed >= 240):
+                self.speedFade = 1
+        else:
+            self.speed = self.speed - 1
+            if(self.speed <= 0 ):
+                self.speedFade = 0
+        
         
         qp = QtGui.QPainter(self)
         baseImage = QtGui.QImage("base.png")
         qp.drawImage(0,0,baseImage)
         qp.end()
+        
+        qtime = QtGui.QPainter(self)
+        atime = QtCore.QTime.currentTime()
+        qtime.setPen(QtGui.QColor(220, 220, 220))
+        qtime.setFont(QtGui.QFont('Decorative', 10))
+        qtime.drawText(QtCore.QRect(374,10,50,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
+        qtime.end()
+        
+        qspeed = QtGui.QPainter(self)
+        qspeed.setPen(QtGui.QColor(220, 220, 220))
+        qspeed.setFont(QtGui.QFont('LCDMono', 45))
+        qspeed.drawText(QtCore.QRect(339,100,120,45),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.end()
+        
         qp2 = QtGui.QPainter(self)
         speedPointerImage = QtGui.QImage("speedPointer.png")
         qp2.translate(400,150)
-        qp2.rotate(-222 + (int(self.speed)/1.261))
+        qp2.rotate(-222 + (int(self.speed)/1.081))
         qp2.drawImage(0,0,speedPointerImage)
         qp2.end()
 
@@ -86,7 +84,7 @@ class Base(QtGui.QWidget):
     def setupUpdateThread(self):  
         self.updateThread = upateThread()  
         # connect our update functoin to the progress signal of the update thread  
-        self.updateThread.progress.connect(self.updateTime, QtCore.Qt.QueuedConnection)  
+        #self.updateThread.progress.connect(self.updateTime, QtCore.Qt.QueuedConnection)  
         #self.updateThread.progress.connect(self.updateSerial, QtCore.Qt.QueuedConnection)  
         if not self.updateThread.isRunning():  # if the thread has not been started let's kick it off  
             self.updateThread.start()     
@@ -122,12 +120,19 @@ class updateSerial(QtCore.QThread):
     
     def setSerialPort(self):
         global PuertoSerie
-        PuertoSerie = serial.Serial("/dev/cu.usbmodemfa131",9600)
-    try: 
-        PuertoSerie.open()
-    except Exception, e:
-        print "error open serial port: " + str(e)
+        try:
+            PuertoSerie = serial.Serial("/dev/cu.usbmodemfa131",9600)
+            print(PuertoSerie)
+        except serial.serialutil.SerialException:
+            print "serial error"
+        if (PuertoSerie):
+            try: 
+                PuertoSerie.open()
+            except Exception, e:
+                print "error open serial port: " + str(e)
+    
 
+    
     def run(self):  
         while True:
             self.msleep(.1)
