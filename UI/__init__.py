@@ -22,7 +22,7 @@ class Base(QtGui.QWidget):
         self.setupUpdateThread()  # thread
         #self.serialUpdateThread()  # thread
         
-        self.setGeometry(300, 300, 800, 300)  # window size
+        self.setGeometry(300, 300, 1440,540)  # window size
         self.show()
                 
     def paintEvent(self, event):
