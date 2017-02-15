@@ -22,7 +22,7 @@ class Base(QtGui.QWidget):
         self.setupUpdateThread()  # thread
         #self.serialUpdateThread()  # thread
         
-        self.setGeometry(300, 300, 1440,540)  # window size
+        self.setGeometry(300, 300, 800,300)  # window size
         self.show()
                 
     def paintEvent(self, event):
@@ -51,8 +51,8 @@ class Base(QtGui.QWidget):
         
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
-        qspeed.setFont(QtGui.QFont('LCDMono', 45))
-        qspeed.drawText(QtCore.QRect(339,100,120,45),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.setFont(QtGui.QFont('LCDMono2', 40))
+        qspeed.drawText(QtCore.QRect(339,105,120,55),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
         
         qp2 = QtGui.QPainter(self)
