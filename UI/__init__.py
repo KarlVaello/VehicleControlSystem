@@ -4,6 +4,7 @@ import sys, random
 import serial, time
 
 from PySide import QtGui, QtCore
+from UpdateSerial  import *
 
 class Base(QtGui.QWidget):
     
@@ -46,7 +47,7 @@ class Base(QtGui.QWidget):
         atime = QtCore.QTime.currentTime()
         qtime.setPen(QtGui.QColor(220, 220, 220))
         qtime.setFont(QtGui.QFont('Decorative', 10))
-        qtime.drawText(QtCore.QRect(374,10,50,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
+        qtime.drawText(QtCore.QRect(360,10,80,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
         qtime.end()
         
         qspeed = QtGui.QPainter(self)
@@ -110,39 +111,7 @@ class upateThread(QtCore.QThread):
             self.msleep(10)
             self.progress.emit(str(random.randint(0, 280)))              
 
-# inherit from Qthread and setup our own thread class  
-class updateSerial(QtCore.QThread):  
-    progress = QtCore.Signal(str)  # create a custom sygnal we can subscribe to to emit update commands  
-    def __init__(self, parent=None):  
-        super(updateSerial, self).__init__(parent)  
-        self.exiting = False  
 
-    
-    def setSerialPort(self):
-        global PuertoSerie
-        try:
-            PuertoSerie = serial.Serial("/dev/cu.usbmodemfa131",9600)
-            print(PuertoSerie)
-        except serial.serialutil.SerialException:
-            print "serial error"
-        if (PuertoSerie):
-            try: 
-                PuertoSerie.open()
-            except Exception, e:
-                print "error open serial port: " + str(e)
-    
-
-    
-    def run(self):  
-        while True:
-            self.msleep(.1)
-            # leemos hasta que encontarmos el final de linea
-            sArduino = PuertoSerie.readline()
-            # Mostramos el valor leido y eliminamos el salto de linea del final
-            #print "Valor Arduino: " + sArduino.rstrip('\n')
-            self.progress.emit(sArduino)
-      
- 
 class canBusSetup:
     
     def setSerialPort(self):
