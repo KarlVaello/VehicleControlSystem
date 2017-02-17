@@ -3,7 +3,7 @@
 Electronic control units:
 
 - CCU Cluster Control Unit
-- ECY Engine Control Unit
+- ECU Engine Control Unit
 
 
 ##DRIVER DASH

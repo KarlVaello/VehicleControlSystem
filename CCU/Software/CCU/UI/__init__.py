@@ -4,7 +4,6 @@ import sys, random
 import serial, time
 
 from PySide import QtGui, QtCore
-from UpdateSerial  import *
 
 class Base(QtGui.QWidget):
     
@@ -25,7 +24,7 @@ class Base(QtGui.QWidget):
         
         self.setGeometry(300, 300, 800,300)  # window size
         self.show()
-                
+                        
     def paintEvent(self, event):
         
         if(self.speedFade == 0):
@@ -91,13 +90,13 @@ class Base(QtGui.QWidget):
             self.updateThread.start()     
     
     
-    def serialUpdateThread(self):  
-        self.updateSerial = updateSerial()  
+    #def serialUpdateThread(self):  
+    #    self.updateSerial = updateSerial()  
         # connect our update functoin to the progress signal of the update thread  
-        self.updateSerial.progress.connect(self.updateSpeed, QtCore.Qt.QueuedConnection)
-        #self.updateThread.progress.connect(self.updateSerial, QtCore.Qt.QueuedConnection)  
-        if not self.updateSerial.isRunning():  # if the thread has not been started let's kick it off  
-            self.updateSerial.start()     
+     #   self.updateSerial.progress.connect(self.updateSpeed, QtCore.Qt.QueuedConnection)
+   #     #self.updateThread.progress.connect(self.updateSerial, QtCore.Qt.QueuedConnection)  
+    #    if not self.updateSerial.isRunning():  # if the thread has not been started let's kick it off  
+    #        self.updateSerial.start()     
                             
 # inherit from Qthread and setup our own thread class  
 class upateThread(QtCore.QThread):  
@@ -111,16 +110,31 @@ class upateThread(QtCore.QThread):
             self.msleep(10)
             self.progress.emit(str(random.randint(0, 280)))              
 
-
+            
 class canBusSetup:
     
     def setSerialPort(self):
         print("CANbus")       
+
+
+class Central(QtGui.QWidget):
+    
+    def __init__(self):
+        super(Central, self).__init__()
+        
+        self.initUI()
+        
+    def initUI(self):
+
+      
+        self.setGeometry(900, 300, 400,800)  # window size
+        self.show()
             
 def main():
     app = QtGui.QApplication(sys.argv)
 
     ex = Base()
+    ex2 = Central()
     sys.exit(app.exec_())
 
 
