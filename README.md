@@ -2,7 +2,10 @@
 
 Electronic control units:
 
-- CCU Cluster Control Unit
+- CCU Central Control Unit
+	- CCU Cluster Control Unit
+	- CCU Central Control Unit
+
 - ECU Engine Control Unit
 
 ![Alt text](VCS_WiringDiagram.png?raw=true "Optional Title")
