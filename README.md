@@ -5,7 +5,7 @@ Electronic control units:
 - CCU Cluster Control Unit
 - ECU Engine Control Unit
 
-
+![Alt text](VCS_WiringDiagram.png?raw=true "Optional Title")
 ##DRIVER DASH
 
 ### TO DO (Software):
