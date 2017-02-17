@@ -9,7 +9,10 @@ Electronic control units:
 - ECU Engine Control Unit
 
 ![Alt text](VCS_WiringDiagram.png?raw=true "Optional Title")
-##DRIVER DASH
+
+
+
+##CCU - Central Control Unit
 
 ### TO DO (Software):
 
@@ -32,7 +35,7 @@ Electronic control units:
 - [ ] Planning
 
 
-##MAIN ECU
+## ECU (Engine Control Unit)
 It will control electric motor, speed. This ECU in conected via CAN Bus the other devices
 
 - [ ]  Hardaware. 
