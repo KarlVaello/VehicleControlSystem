@@ -2,7 +2,7 @@
 
 ##DRIVER DASH
 
-# TO DO LIST (Software):
+### TO DO (Software):
 
 - [ ] CAN Bus 
 
@@ -18,7 +18,7 @@
 	Warnings:
 	- [ ] Battery warning
 
-# TO DO LIST (Hardware):
+### TO DO (Hardware):
 
 - [ ] Planning
 
