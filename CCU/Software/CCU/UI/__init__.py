@@ -5,8 +5,8 @@ import serial, time
 
 from PySide import QtGui, QtCore
 
-from ClusterUI   import *
-from CentralConsoleUI   import *
+from ClusterUI import *
+from CentralConsoleUI import *
 
           
 
@@ -20,8 +20,9 @@ class canBusSetup:
             
 def main():
     app = QtGui.QApplication(sys.argv)
+    
     ex = ClusterUI().initUI
-    ex2 = CentralConsoleUI().initUI
+    #ex2 = CentralConsoleUI().initUI
     sys.exit(app.exec_())
 
 

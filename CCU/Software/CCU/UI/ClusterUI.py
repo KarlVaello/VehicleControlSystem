@@ -4,9 +4,8 @@ Created on 18 feb. 2017
 @author: c
 '''
 
-from PySide import QtGui, QtCore
-import random, time
-
+from PySide import QtGui, QtCore, QtSvg
+import serial
 
 
 
@@ -14,7 +13,8 @@ class ClusterUI(QtGui.QWidget):
     
     def __init__(self):
         super(ClusterUI, self).__init__()
-        print "hey5"
+        global ser 
+        ser = serial.Serial('COM8',9600)
         self.setupUpdateThread()  # thread
         self.initUI()
         
@@ -24,26 +24,26 @@ class ClusterUI(QtGui.QWidget):
         self.speedFade = 0
         global errorIconOn
         errorIconOn = 1
-
         
-        self.setGeometry(300, 300, 800,300)  # window size
+        self.renderer = QtSvg.QSvgRenderer('outiline.svg')        
+        self.speedPointerRenderer = QtSvg.QSvgRenderer('speedPointer.svg')        
+   
+        self.setGeometry(300, 300, 932,349)  # window size
         self.show()
         
     def paintEvent(self, event):
         
-        #if(self.speedFade == 0):
-        # self.speed = self.speed + 1
-        #  if(self.speed >= 240):
-        #       self.speedFade = 1
-        #else:
-        #   self.speed = self.speed - 1
-        #   if(self.speed <= 0 ):
-        #       self.speedFade = 0
-                
-        qp = QtGui.QPainter(self)
-        baseImage = QtGui.QImage("base.png")
-        qp.drawImage(0,0,baseImage)
-        qp.end()
+               
+        #qp = QtGui.QPainter(self)
+        #baseImage = QtGui.QImage("outiline.png")
+        #qp.scale(0.27,0.27)
+        #qp.drawImage(0,0,baseImage)
+        #qp.end()
+        
+        
+        painter = QtGui.QPainter(self);
+        self.renderer.render(painter);
+        painter.end()
         
         qtime = QtGui.QPainter(self)
         atime = QtCore.QTime.currentTime()
@@ -55,15 +55,23 @@ class ClusterUI(QtGui.QWidget):
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
         qspeed.setFont(QtGui.QFont('LCDMono2', 40))
-        qspeed.drawText(QtCore.QRect(339,105,120,55),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.drawText(QtCore.QRect(406,130,120,55),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
         
-        qp2 = QtGui.QPainter(self)
-        speedPointerImage = QtGui.QImage("speedPointer.png")
-        qp2.translate(400,150)
-        qp2.rotate(-222 + (int(self.speed)/1.081))
-        qp2.drawImage(0,0,speedPointerImage)
-        qp2.end()
+        #qp2 = QtGui.QPainter(self)
+        #speedPointerImage = QtGui.QImage("speedPointer.png")
+        #qp2.translate(932/2,349/2)
+        #qp2.rotate(-222 + (int(self.speed)/1.081))
+        #qp2.drawImage(0,0,speedPointerImage)
+        #qp2.end()
+        
+        qp3 = QtGui.QPainter(self)
+        qp3.translate(932/2,349/2)
+        qp3.rotate(-209 + (int(self.speed)/1.175))
+        self.speedPointerRenderer.render(qp3);
+        qp3.end()
+        
+        
 
         if (errorIconOn == 1):
             qp3 = QtGui.QPainter(self)
@@ -71,14 +79,11 @@ class ClusterUI(QtGui.QWidget):
             qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
             qp3.end()
 
-        
-        #self.update()
-        
+             
         # update GUI current time label  
-    def updateSpeed(self, text):
+    def updateSpeed(self,text):
+        
         self.speed = int(text)
-        self.speedLabel.setText(str(text))
-        print "hey2"
         self.update()
 
     # update GUI current time label
@@ -94,8 +99,6 @@ class ClusterUI(QtGui.QWidget):
             self.updateThread.start() 
 
 
-
-
 #inherit from Qthread and setup our own thread class  #
 class upateThread(QtCore.QThread):  
     progress = QtCore.Signal(str)  # create a custom signal we can subscribe to to emit update commands  
@@ -105,6 +108,7 @@ class upateThread(QtCore.QThread):
     
     def run(self):
         while True:  
-            self.msleep(10)
-            self.progress.emit(str(random.randint(0,240)))
+            self.msleep(0.1)
+            #print (ser.readline().strip())
+            self.progress.emit(ser.readline().strip())
     
