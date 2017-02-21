@@ -15,7 +15,7 @@ class ClusterUI(QtGui.QWidget):
     def __init__(self):
         super(ClusterUI, self).__init__()
         global ser 
-       # ser = serial.Serial('COM8',9600)
+        ser = serial.Serial('COM8',9600)
         self.setupUpdateThread()  # thread
         self.initUI()
         
@@ -29,19 +29,13 @@ class ClusterUI(QtGui.QWidget):
         self.renderer = QtSvg.QSvgRenderer('outiline.svg')        
         
         self.speedPointerRenderer = QtSvg.QSvgRenderer('speedPointer.svg')        
-        self.beepSound = QSound("record.wav")
-        self.beepSound.play()
-        self.beepSound.setLoops(10)
-        print QSound.isAvailable()
-        QSound.play("record.wav")
         self.clusterDisplayHight = 480
         self.clusterDisplayWidth = 1280
         self.setGeometry(300, 200, 1280,480)  # window size
         self.show()
         
     def paintEvent(self, event):
-        
-                       
+             
         painter = QtGui.QPainter(self);
         self.renderer.render(painter);
         painter.end()
@@ -56,25 +50,24 @@ class ClusterUI(QtGui.QWidget):
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
         qspeed.setFont(QtGui.QFont('LCDMono2', 40))
-        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) - 90 ,(self.clusterDisplayHight / 2) - 40 ,120,55),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) ,(self.clusterDisplayHight / 2) - 40 ,120,55),QtCore.Qt.AlignVCenter, str(self.speed))
         qspeed.end()
                 
         qp3 = QtGui.QPainter(self)
-        qp3.translate((self.clusterDisplayWidth / 2)- 30 ,(self.clusterDisplayHight / 2))
+        qp3.translate((self.clusterDisplayWidth / 2) ,(self.clusterDisplayHight / 2))
         qp3.rotate(-209 + (int(self.speed)/1.175))
         self.speedPointerRenderer.render(qp3);
-        qp3.end()
-        
-        
+        qp3.end() 
 
         if (errorIconOn == 1):
             qp3 = QtGui.QPainter(self)
             errorIconImage = QtGui.QImage("errorIcon.png")
             qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
             qp3.end()
-        
 
-        self.update()
+
+
+        #self.update()
              
         # update GUI current time label  
     def updateSpeed(self,text):
@@ -105,8 +98,11 @@ class upateThread(QtCore.QThread):
         self.fadeSpeed = 0
     def run(self):
         while True:  
-            self.msleep(0.01)
+            self.msleep(0.1)
+            #QSound.play("beep1.wav")
+            #print QSound.isAvailable()
             
+            '''
             if (self.fadeSpeed == 0):
                 self.aSpeed = self.aSpeed + 1
                 if (self.aSpeed >= 280):
@@ -116,7 +112,7 @@ class upateThread(QtCore.QThread):
                 if (self.aSpeed <= 0 ):
                     self.fadeSpeed = 0 
             self.progress.emit(str(self.aSpeed))       
-            
+            '''
             #print (ser.readline().strip())
-            #self.progress.emit(ser.readline().strip())
+            self.progress.emit(ser.readline().strip())
     
