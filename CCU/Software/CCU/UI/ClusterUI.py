@@ -105,7 +105,7 @@ class upateThread(QtCore.QThread):
         self.fadeSpeed = 0
     def run(self):
         while True:  
-            self.msleep(0.4)
+            self.msleep(0.01)
             
             if (self.fadeSpeed == 0):
                 self.aSpeed = self.aSpeed + 1
