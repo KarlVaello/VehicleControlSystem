@@ -34,7 +34,9 @@ class ClusterUI(QtGui.QWidget):
         self.beepSound.setLoops(10)
         print QSound.isAvailable()
         QSound.play("record.wav")
-        self.setGeometry(300, 200, 932,349)  # window size
+        self.clusterDisplayHight = 480
+        self.clusterDisplayWidth = 1280
+        self.setGeometry(300, 200, 1280,480)  # window size
         self.show()
         
     def paintEvent(self, event):
@@ -48,17 +50,17 @@ class ClusterUI(QtGui.QWidget):
         atime = QtCore.QTime.currentTime()
         qtime.setPen(QtGui.QColor(220, 220, 220))
         qtime.setFont(QtGui.QFont('Decorative', 10))
-        qtime.drawText(QtCore.QRect(360,10,80,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
+        qtime.drawText(QtCore.QRect(430,10,80,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
         qtime.end()
         
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
         qspeed.setFont(QtGui.QFont('LCDMono2', 40))
-        qspeed.drawText(QtCore.QRect(406,130,120,55),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) - 90 ,(self.clusterDisplayHight / 2) - 40 ,120,55),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
                 
         qp3 = QtGui.QPainter(self)
-        qp3.translate(932/2,349/2)
+        qp3.translate((self.clusterDisplayWidth / 2)- 30 ,(self.clusterDisplayHight / 2))
         qp3.rotate(-209 + (int(self.speed)/1.175))
         self.speedPointerRenderer.render(qp3);
         qp3.end()
@@ -99,10 +101,22 @@ class upateThread(QtCore.QThread):
     def __init__(self, parent=None):  
         super(upateThread, self).__init__(parent)  
         self.exiting = False  
-    
+        self.aSpeed = 0
+        self.fadeSpeed = 0
     def run(self):
         while True:  
-            self.msleep(0.1)
-             #print (ser.readline().strip())
+            self.msleep(0.4)
+            
+            if (self.fadeSpeed == 0):
+                self.aSpeed = self.aSpeed + 1
+                if (self.aSpeed >= 280):
+                    self.fadeSpeed = 1
+            else:
+                self.aSpeed = self.aSpeed - 1
+                if (self.aSpeed <= 0 ):
+                    self.fadeSpeed = 0 
+            self.progress.emit(str(self.aSpeed))       
+            
+            #print (ser.readline().strip())
             #self.progress.emit(ser.readline().strip())
     
