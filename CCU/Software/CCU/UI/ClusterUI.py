@@ -6,6 +6,7 @@ Created on 18 feb. 2017
 
 from PySide import QtGui, QtCore, QtSvg
 import serial
+from PySide.QtGui import *
 
 
 
@@ -14,7 +15,7 @@ class ClusterUI(QtGui.QWidget):
     def __init__(self):
         super(ClusterUI, self).__init__()
         global ser 
-        ser = serial.Serial('COM8',9600)
+       # ser = serial.Serial('COM8',9600)
         self.setupUpdateThread()  # thread
         self.initUI()
         
@@ -26,21 +27,19 @@ class ClusterUI(QtGui.QWidget):
         errorIconOn = 1
         
         self.renderer = QtSvg.QSvgRenderer('outiline.svg')        
+        
         self.speedPointerRenderer = QtSvg.QSvgRenderer('speedPointer.svg')        
-   
-        self.setGeometry(300, 300, 932,349)  # window size
+        self.beepSound = QSound("record.wav")
+        self.beepSound.play()
+        self.beepSound.setLoops(10)
+        print QSound.isAvailable()
+        QSound.play("record.wav")
+        self.setGeometry(300, 200, 932,349)  # window size
         self.show()
         
     def paintEvent(self, event):
         
-               
-        #qp = QtGui.QPainter(self)
-        #baseImage = QtGui.QImage("outiline.png")
-        #qp.scale(0.27,0.27)
-        #qp.drawImage(0,0,baseImage)
-        #qp.end()
-        
-        
+                       
         painter = QtGui.QPainter(self);
         self.renderer.render(painter);
         painter.end()
@@ -57,14 +56,7 @@ class ClusterUI(QtGui.QWidget):
         qspeed.setFont(QtGui.QFont('LCDMono2', 40))
         qspeed.drawText(QtCore.QRect(406,130,120,55),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
-        
-        #qp2 = QtGui.QPainter(self)
-        #speedPointerImage = QtGui.QImage("speedPointer.png")
-        #qp2.translate(932/2,349/2)
-        #qp2.rotate(-222 + (int(self.speed)/1.081))
-        #qp2.drawImage(0,0,speedPointerImage)
-        #qp2.end()
-        
+                
         qp3 = QtGui.QPainter(self)
         qp3.translate(932/2,349/2)
         qp3.rotate(-209 + (int(self.speed)/1.175))
@@ -78,7 +70,9 @@ class ClusterUI(QtGui.QWidget):
             errorIconImage = QtGui.QImage("errorIcon.png")
             qp3.drawImage(QtCore.QRect(160,100,50,50),errorIconImage)
             qp3.end()
+        
 
+        self.update()
              
         # update GUI current time label  
     def updateSpeed(self,text):
@@ -109,6 +103,6 @@ class upateThread(QtCore.QThread):
     def run(self):
         while True:  
             self.msleep(0.1)
-            #print (ser.readline().strip())
-            self.progress.emit(ser.readline().strip())
+             #print (ser.readline().strip())
+            #self.progress.emit(ser.readline().strip())
     
