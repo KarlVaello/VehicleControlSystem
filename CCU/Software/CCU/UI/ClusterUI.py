@@ -23,12 +23,16 @@ class ClusterUI(QtGui.QWidget):
     def initUI(self):
         self.speed = 0
         self.speedFade = 0
+        self.menu = 0
         global errorIconOn
         errorIconOn = 1
         
         self.renderer = QtSvg.QSvgRenderer('outiline.svg')        
+        self.speedPointerRenderer = QtSvg.QSvgRenderer('speedPointer.svg')   
+        self.gpsIconRenderer = QtSvg.QSvgRenderer('gpsIcon.svg')   
+        self.musicIconRenderer = QtSvg.QSvgRenderer('musicIcon.svg')   
         
-        self.speedPointerRenderer = QtSvg.QSvgRenderer('speedPointer.svg')        
+             
         self.clusterDisplayHight = 480
         self.clusterDisplayWidth = 1280
         self.setGeometry(300, 200, 1280,480)  # window size
@@ -36,27 +40,40 @@ class ClusterUI(QtGui.QWidget):
         
     def paintEvent(self, event):
              
-        painter = QtGui.QPainter(self);
-        self.renderer.render(painter);
+        painter = QtGui.QPainter(self)
+        self.renderer.render(painter)
         painter.end()
+        
+        if (self.menu==1):
+            painter3 = QtGui.QPainter(self)
+            painter3.translate(420 ,100)
+            painter3.scale(0.045,0.1)
+            self.gpsIconRenderer.render(painter3)
+            painter3.end()
+            
+            painter2 = QtGui.QPainter(self)
+            painter2.translate(400 ,160)
+            painter2.scale(0.045,0.1)
+            self.musicIconRenderer.render(painter2)
+            painter2.end()
         
         qtime = QtGui.QPainter(self)
         atime = QtCore.QTime.currentTime()
         qtime.setPen(QtGui.QColor(220, 220, 220))
-        qtime.setFont(QtGui.QFont('Decorative', 10))
-        qtime.drawText(QtCore.QRect(430,10,80,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
+        qtime.setFont(QtGui.QFont('Decorative', 20))
+        qtime.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) -50,15,100,50),QtCore.Qt.AlignCenter,str(atime.hour()) + ":" + str(atime.minute()) + ":" + str(atime.second()))
         qtime.end()
         
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
-        qspeed.setFont(QtGui.QFont('LCDMono2', 40))
-        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) ,(self.clusterDisplayHight / 2) - 40 ,120,55),QtCore.Qt.AlignVCenter, str(self.speed))
+        qspeed.setFont(QtGui.QFont('LCDMono2', 50))
+        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) -60,(self.clusterDisplayHight / 2) - 55 ,120,55),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
                 
         qp3 = QtGui.QPainter(self)
         qp3.translate((self.clusterDisplayWidth / 2) ,(self.clusterDisplayHight / 2))
         qp3.rotate(-209 + (int(self.speed)/1.175))
-        self.speedPointerRenderer.render(qp3);
+        self.speedPointerRenderer.render(qp3)
         qp3.end() 
 
         if (errorIconOn == 1):
@@ -72,7 +89,10 @@ class ClusterUI(QtGui.QWidget):
         # update GUI current time label  
     def updateSpeed(self,text):
         
-        self.speed = int(text)
+        text2,mn = text.split(';')
+        
+        self.speed = int(mn)
+        self.menu = int(text2)
         self.update()
 
     # update GUI current time label
@@ -114,5 +134,6 @@ class upateThread(QtCore.QThread):
             self.progress.emit(str(self.aSpeed))       
             '''
             #print (ser.readline().strip())
-            self.progress.emit(ser.readline().strip())
+            self.progress.emit(str(ser.readline().strip()))
+            
     

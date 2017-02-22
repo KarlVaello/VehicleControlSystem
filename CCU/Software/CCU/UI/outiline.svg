@@ -3,9 +3,9 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 828.7 310.7" style="enable-background:new 0 0 828.7 310.7;" xml:space="preserve">
 <style type="text/css">
-	.st0{display:none;}
-	.st1{display:inline;fill:none;stroke:#C10000;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#AD6423;stroke-miterlimit:10;}
+	.st0{fill:none;stroke:#C10000;stroke-miterlimit:10;}
+	.st1{display:none;}
+	.st2{display:inline;fill:none;stroke:#AD6423;stroke-miterlimit:10;}
 	.st3{fill:#1E1E1E;}
 	.st4{fill:none;}
 	.st5{fill:#AECED1;}
@@ -13,12 +13,17 @@
 	.st7{font-size:14px;}
 	.st8{font-size:10px;}
 	.st9{fill:#CDF3F9;}
-	.st10{fill:#EF2511;}
-	.st11{fill:none;stroke:#26A4C6;stroke-width:3;stroke-miterlimit:10;}
+	.st10{fill:#58D3E0;}
+	.st11{fill:#CE5300;}
+	.st12{fill:#843500;}
+	.st13{fill:#EF2511;}
+	.st14{fill:#6B0000;}
+	.st15{fill:none;stroke:#26A4C6;stroke-width:3;stroke-miterlimit:10;}
+	.st16{display:inline;fill:none;stroke:#C10000;stroke-miterlimit:10;}
 </style>
-<g id="Capa_1" class="st0">
+<g id="Capa_1">
 	
-		<image style="display:inline;overflow:visible;" width="3449" height="1287" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAADXkAAAUHCAIAAAA6HBcPAAAACXBIWXMAAC4jAAAuIwF4pT92AAAB
+		<image style="overflow:visible;" width="3449" height="1287" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAADXkAAAUHCAIAAAA6HBcPAAAACXBIWXMAAC4jAAAuIwF4pT92AAAB
 NmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQt
 RRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvV
 bjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+
@@ -40406,9 +40411,9 @@ P5gxkjFQGANDrLmGGxWLTONRGANTpYkhF6gy+KmpDq0YwZ5zGM/fRwpoDOAE9Yvk4JegIVRzz2NT
 NdTOcWZBV+gzzCXyQ2XrEdzRAowdmLdffcI+HI/Fq3OkzvDS3A797Dauoeub7IiG88Dyzuf05TU9
 LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142)">
 	</image>
-	<line class="st1" x1="414.3" y1="-12.6" x2="414.3" y2="297.4"/>
+	<line class="st0" x1="414.3" y1="-12.6" x2="414.3" y2="297.4"/>
 </g>
-<g id="Capa_5">
+<g id="Capa_5" class="st1">
 	<line class="st2" x1="414.3" y1="0" x2="414.3" y2="310.7"/>
 	<line class="st2" x1="414.3" y1="155.4" x2="828.7" y2="155.4"/>
 	<line class="st2" x1="414.3" y1="155.4" x2="797.1" y2="313.9"/>
@@ -40444,7 +40449,7 @@ LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142
 	<circle class="st9" cx="309.3" cy="165.8" r="1.1"/>
 	<circle class="st9" cx="308.8" cy="158.9" r="1.1"/>
 	<circle class="st9" cx="308.8" cy="152" r="1.1"/>
-	<circle class="st10" cx="309.3" cy="145.1" r="1.1"/>
+	<circle class="st10" cx="309.3" cy="145.1" r="1.7"/>
 	<circle class="st9" cx="310.2" cy="138.2" r="1.1"/>
 	<circle class="st9" cx="311.5" cy="131.4" r="1.1"/>
 	<circle class="st9" cx="313.3" cy="124.8" r="1.1"/>
@@ -40453,7 +40458,7 @@ LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142
 	<circle class="st9" cx="321.2" cy="105.7" r="1.1"/>
 	<circle class="st9" cx="324.7" cy="99.7" r="1.1"/>
 	<circle class="st9" cx="328.5" cy="93.9" r="1.1"/>
-	<circle class="st10" cx="332.7" cy="88.4" r="1.1"/>
+	<circle class="st10" cx="332.7" cy="88.4" r="1.7"/>
 	<circle class="st9" cx="337.3" cy="83.3" r="1.1"/>
 	<circle class="st9" cx="342.1" cy="78.4" r="1.1"/>
 	<circle class="st9" cx="347.3" cy="73.8" r="1.1"/>
@@ -40462,44 +40467,44 @@ LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142
 	<circle class="st9" cx="364.5" cy="62.3" r="1.1"/>
 	<circle class="st9" cx="370.7" cy="59.3" r="1.1"/>
 	<circle class="st9" cx="377.1" cy="56.6" r="1.1"/>
-	<circle class="st10" cx="383.6" cy="54.4" r="1.1"/>
-	<circle class="st9" cx="390.3" cy="52.6" r="1.1"/>
-	<circle class="st9" cx="397.1" cy="51.2" r="1.1"/>
-	<circle class="st9" cx="403.9" cy="50.3" r="1.1"/>
-	<circle class="st9" cx="410.8" cy="49.9" r="1.1"/>
-	<circle class="st9" cx="417.7" cy="49.9" r="1.1"/>
-	<circle class="st9" cx="424.6" cy="50.3" r="1.1"/>
-	<circle class="st9" cx="431.5" cy="51.2" r="1.1"/>
-	<circle class="st9" cx="438.2" cy="52.6" r="1.1"/>
-	<circle class="st10" cx="444.9" cy="54.4" r="1.1"/>
-	<circle class="st9" cx="451.5" cy="56.6" r="1.1"/>
-	<circle class="st9" cx="457.8" cy="59.2" r="1.1"/>
-	<circle class="st9" cx="464" cy="62.3" r="1.1"/>
-	<circle class="st9" cx="470" cy="65.7" r="1.1"/>
-	<circle class="st9" cx="475.8" cy="69.6" r="1.1"/>
-	<circle class="st9" cx="481.2" cy="73.8" r="1.1"/>
-	<circle class="st9" cx="486.4" cy="78.3" r="1.1"/>
-	<circle class="st9" cx="491.3" cy="83.2" r="1.1"/>
-	<circle class="st10" cx="495.9" cy="88.4" r="1.1"/>
-	<circle class="st9" cx="500.1" cy="93.9" r="1.1"/>
-	<circle class="st9" cx="503.9" cy="99.6" r="1.1"/>
-	<circle class="st9" cx="507.4" cy="105.6" r="1.1"/>
-	<circle class="st9" cx="510.4" cy="111.8" r="1.1"/>
-	<circle class="st9" cx="513.1" cy="118.1" r="1.1"/>
-	<circle class="st9" cx="515.3" cy="124.7" r="1.1"/>
-	<circle class="st9" cx="517.1" cy="131.4" r="1.1"/>
-	<circle class="st9" cx="518.4" cy="138.1" r="1.1"/>
-	<circle class="st10" cx="519.3" cy="145" r="1.1"/>
-	<circle class="st9" cx="519.8" cy="151.9" r="1.1"/>
-	<circle class="st9" cx="519.8" cy="158.8" r="1.1"/>
-	<circle class="st9" cx="519.4" cy="165.7" r="1.1"/>
-	<circle class="st9" cx="518.5" cy="172.5" r="1.1"/>
-	<circle class="st9" cx="517.1" cy="179.3" r="1.1"/>
-	<circle class="st9" cx="515.3" cy="186" r="1.1"/>
-	<circle class="st9" cx="513.1" cy="192.5" r="1.1"/>
-	<circle class="st9" cx="510.5" cy="198.9" r="1.1"/>
-	<circle class="st10" cx="507.4" cy="205.1" r="1.1"/>
-	<circle class="st10" cx="321.3" cy="205.2" r="1.1"/>
+	<circle class="st11" cx="383.6" cy="54.4" r="1.7"/>
+	<circle class="st12" cx="390.3" cy="52.6" r="1.1"/>
+	<circle class="st12" cx="397.1" cy="51.2" r="1.1"/>
+	<circle class="st12" cx="403.9" cy="50.3" r="1.1"/>
+	<circle class="st12" cx="410.8" cy="49.9" r="1.1"/>
+	<circle class="st12" cx="417.7" cy="49.9" r="1.1"/>
+	<circle class="st12" cx="424.6" cy="50.3" r="1.1"/>
+	<circle class="st12" cx="431.5" cy="51.2" r="1.1"/>
+	<circle class="st12" cx="438.2" cy="52.6" r="1.1"/>
+	<circle class="st11" cx="444.9" cy="54.4" r="1.7"/>
+	<circle class="st12" cx="451.5" cy="56.6" r="1.1"/>
+	<circle class="st12" cx="457.8" cy="59.2" r="1.1"/>
+	<circle class="st12" cx="464" cy="62.3" r="1.1"/>
+	<circle class="st12" cx="470" cy="65.7" r="1.1"/>
+	<circle class="st12" cx="475.8" cy="69.6" r="1.1"/>
+	<circle class="st12" cx="481.2" cy="73.8" r="1.1"/>
+	<circle class="st12" cx="486.4" cy="78.3" r="1.1"/>
+	<circle class="st12" cx="491.3" cy="83.2" r="1.1"/>
+	<circle class="st13" cx="495.9" cy="88.4" r="1.7"/>
+	<circle class="st14" cx="500.1" cy="93.9" r="1.1"/>
+	<circle class="st14" cx="503.9" cy="99.6" r="1.1"/>
+	<circle class="st14" cx="507.4" cy="105.6" r="1.1"/>
+	<circle class="st14" cx="510.4" cy="111.8" r="1.1"/>
+	<circle class="st14" cx="513.1" cy="118.1" r="1.1"/>
+	<circle class="st14" cx="515.3" cy="124.7" r="1.1"/>
+	<circle class="st14" cx="517.1" cy="131.4" r="1.1"/>
+	<circle class="st14" cx="518.4" cy="138.1" r="1.1"/>
+	<circle class="st13" cx="519.3" cy="145" r="1.7"/>
+	<circle class="st14" cx="519.8" cy="151.9" r="1.1"/>
+	<circle class="st14" cx="519.8" cy="158.8" r="1.1"/>
+	<circle class="st14" cx="519.4" cy="165.7" r="1.1"/>
+	<circle class="st14" cx="518.5" cy="172.5" r="1.1"/>
+	<circle class="st14" cx="517.1" cy="179.3" r="1.1"/>
+	<circle class="st14" cx="515.3" cy="186" r="1.1"/>
+	<circle class="st14" cx="513.1" cy="192.5" r="1.1"/>
+	<circle class="st14" cx="510.5" cy="198.9" r="1.1"/>
+	<circle class="st13" cx="507.4" cy="205.1" r="1.7"/>
+	<circle class="st10" cx="321.3" cy="205.2" r="1.7"/>
 	<circle class="st9" cx="318.2" cy="199" r="1.1"/>
 	<circle class="st9" cx="315.6" cy="192.6" r="1.1"/>
 	<circle class="st9" cx="313.3" cy="186" r="1.1"/>
@@ -40508,7 +40513,7 @@ LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142
 </g>
 <g id="Capa_2">
 	<g id="Capa_6">
-		<path class="st11" d="M301.6,155.4c0-62.2,50.4-112.7,112.7-112.7S527,98.8,527,155.4c0,62.2-50.4,112.7-112.7,112.7
+		<path class="st15" d="M301.6,155.4c0-62.2,50.4-112.7,112.7-112.7S527,98.8,527,155.4c0,62.2-50.4,112.7-112.7,112.7
 			S301.6,217.6,301.6,155.4z"/>
 	</g>
 	<g id="Capa_10_copia">
@@ -40517,15 +40522,15 @@ LEb8cscHK4TjEcC3hrwAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 0 -12.6142
 </g>
 <g id="Capa_3">
 	<g id="Capa_7">
-		<path class="st11" d="M414.3,12.6c56.5,0,170.4,3.1,225.7,15.4c25,5.6,119.2,51.3,156.9,72.5c19.3,10.9,26.5,21.8,16.4,50
+		<path class="st15" d="M414.3,12.6c56.5,0,170.4,3.1,225.7,15.4c25,5.6,119.2,51.3,156.9,72.5c19.3,10.9,26.5,21.8,16.4,50
 			c0,0-37.5,80.8-60.2,106.4c-17.5,19.7-26.1,28.5-52.1,28.5H572.5c-7.3,0-14-4.5-18-10.6l-23.3-37.6c-6.5-9.3-17.1-14.7-28.4-14.7
-			h-88.4c0,0-88.4,0-88.4,0c-11.3,0-21.9,5.4-28.4,14.7l-23.3,37.6c-4,6.1-10.7,10.6-18,10.6H127.7c-26,0-34.6-8.7-52.1-28.5
+			h-88.4h-88.4c-11.3,0-21.9,5.4-28.4,14.7l-23.3,37.6c-4,6.1-10.7,10.6-18,10.6H127.7c-26,0-34.6-8.7-52.1-28.5
 			c-22.7-25.6-60.2-106.4-60.2-106.4c-10.1-28.2-2.9-39.1,16.4-50C69.4,79.3,163.7,33.6,188.7,28C243.9,15.6,357.8,12.6,414.3,12.6z
 			"/>
 	</g>
 </g>
-<g id="Capa_3_copia_2" class="st0">
-	<path class="st1" d="M414.3,12.4c0,0-173.8,8.4-226.1,19.1C155.8,38.1,76.3,78,50,94.4C27.2,108.7,5.3,120.2,13,147
+<g id="Capa_3_copia_2" class="st1">
+	<path class="st16" d="M414.3,12.4c0,0-173.8,8.4-226.1,19.1C155.8,38.1,76.3,78,50,94.4C27.2,108.7,5.3,120.2,13,147
 		c14.6,50.3,69.3,144,103.8,144l136.7-0.2c8.9,0.3,20.8-7.2,26.5-17.2l19.3-32.1c7.3-10.6,16.4-13.5,27.8-13.5h86.9"/>
 </g>
 </svg>
