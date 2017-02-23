@@ -16,7 +16,7 @@ class ClusterUI(QtGui.QWidget):
     def __init__(self):
         super(ClusterUI, self).__init__()
         global ser 
-        ser = serial.Serial('COM8',9600)
+        #ser = serial.Serial('COM8',9600)
         self.setupUpdateThread()  # thread
         self.initUI()
         
@@ -99,7 +99,7 @@ class ClusterUI(QtGui.QWidget):
              
         # update GUI current time label  
     def updateSpeed(self,text):
-        
+        print text
         mn,speedR = text.split(';')
         
         if(speedR != self.speed or mn != self.menu):
@@ -137,7 +137,7 @@ class upateThread(QtCore.QThread):
             #QSound.play("beep1.wav")
             #print QSound.isAvailable()
             
-            '''
+            
             if (self.fadeSpeed == 0):
                 self.aSpeed = self.aSpeed + 1
                 if (self.aSpeed >= 280):
@@ -147,8 +147,9 @@ class upateThread(QtCore.QThread):
                 if (self.aSpeed <= 0 ):
                     self.fadeSpeed = 0 
             self.progress.emit(str(self.aSpeed))       
-            '''
+            
             #print (ser.readline().strip())
-            self.progress.emit(str(ser.readline().strip()))
+            #self.progress.emit(str(ser.readline().strip()))
+            self.progress.emit("1;" + str(self.aSpeed))
             
     
