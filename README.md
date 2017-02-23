@@ -8,8 +8,13 @@ Electronic control units:
 
 - ECU Engine Control Unit
 
-![Alt text](VCS_WiringDiagram.png?raw=true "Optional Title")
+![Alt text](VCS_WiringDiagram.png?raw=true "Wiring Diagram")
 
+
+
+###SCREENSHOTS
+
+![Alt text](Screenshots/clusterVCS.png?raw=true "Wiring Diagram")
 
 
 ##CCU - Central Control Unit

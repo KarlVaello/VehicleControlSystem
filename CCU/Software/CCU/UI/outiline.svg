@@ -19,7 +19,7 @@
 	.st13{fill:#6B0000;}
 	.st14{fill:none;stroke:#26A4C6;stroke-width:3;stroke-miterlimit:10;}
 	.st15{fill:none;stroke:#155B6B;stroke-width:8;stroke-miterlimit:10;}
-	.st16{fill:none;stroke:#26A4C6;stroke-width:8;stroke-miterlimit:10;}
+	.st16{display:none;fill:none;stroke:#26A4C6;stroke-width:8;stroke-miterlimit:10;}
 	.st17{fill:#26A4C6;}
 	.st18{font-family:'Verdana';}
 	.st19{font-size:8px;}
@@ -143,18 +143,19 @@
 			c-55.3-12.3-170.4-15.4-227-15.4"/>
 	</g>
 	<line class="st15" x1="479.8" y1="241.7" x2="351.5" y2="241.7"/>
-	<line class="st16" x1="400.5" y1="241.7" x2="351.5" y2="241.7"/>
+	<line class="st16" x1="479.7" y1="241.7" x2="351.5" y2="241.7"/>
+	<line class="st16" x1="128.3" y1="0" x2="0" y2="0"/>
 	<path class="st17" d="M313.6,240.2c-0.1-0.1-0.2-0.2-0.4-0.2h-3l0.4-4.7c0-0.2-0.1-0.4-0.3-0.4c-0.2-0.1-0.4,0-0.5,0.2l-4.7,7.3
 		c-0.1,0.1-0.1,0.3,0,0.4s0.2,0.2,0.4,0.2h3l-0.4,5.1c0,0.2,0.1,0.4,0.3,0.4c0,0,0.1,0,0.1,0c0.1,0,0.3-0.1,0.4-0.2l4.7-7.7
 		C313.6,240.5,313.7,240.3,313.6,240.2L313.6,240.2z"/>
-	<rect x="311.2" y="237.1" class="st3" width="44.1" height="9.1"/>
-	<text transform="matrix(1 0 0 1 318.7281 243.229)"><tspan x="0" y="0" class="st4 st18 st19">40.7 </tspan><tspan x="17" y="0" class="st4 st18 st20">kWh</tspan></text>
+	<rect x="336.4" y="238.3" class="st3" width="16.9" height="9.1"/>
+	<text transform="matrix(1 0 0 1 340.5748 244.354)" class="st4 st18 st19">%</text>
 	<g id="Capa_12">
 		<path class="st14" d="M415.6,258.7h-95.8c-8.2,0-16.3,1.3-24,3.9l-17.8,6"/>
 		<path class="st14" d="M415.6,258.7h95.8c8.2,0,16.3,1.3,24,3.9l17.8,6"/>
 	</g>
-	<rect x="481.7" y="237.1" class="st3" width="44.1" height="9.1"/>
-	<text transform="matrix(1 0 0 1 488.7546 243.229)"><tspan x="0" y="0" class="st4 st18 st19">184.7 </tspan><tspan x="21.3" y="0" class="st4 st18 st20">km</tspan></text>
+	<rect x="514.5" y="238.6" class="st3" width="16.7" height="9.1"/>
+	<text transform="matrix(1 0 0 1 518.3977 243.1646)" class="st4 st18 st20">km</text>
 </g>
 <g id="Capa_3_copia_2" class="st0">
 	<path class="st21" d="M414.3,12.4c0,0-173.8,8.4-226.1,19.1C155.8,38.1,76.3,78,50,94.4C27.2,108.7,5.3,120.2,13,147
