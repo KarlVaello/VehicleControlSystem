@@ -14,7 +14,7 @@ Electronic control units:
 
 ###SCREENSHOTS
 
-![Alt text](VCS/Screenshots/cluster.PNG?raw=true "Wiring Diagram")
+![Alt text](/Screenshots/cluster.PNG?raw=true "Wiring Diagram")
 
 
 ##CCU - Central Control Unit
