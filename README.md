@@ -8,7 +8,7 @@ Electronic control units:
 
 - ECU Engine Control Unit
 
-![Alt text](VCS_WiringDiagram.png?raw=true "Wiring Diagram")
+![Alt text](WiringDiagram.png?raw=true "Wiring Diagram")
 
 ###SCREENSHOTS
 
