@@ -8,6 +8,7 @@
 	- CCU Cluster Control Unit
 	- CCU Central Control Unit
 - EmCU Electric-motor Control Unit
+- BCU Battery Control Unit
 
 MODULES:
 - CcCM Central-console Control Module
