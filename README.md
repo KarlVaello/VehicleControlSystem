@@ -1,4 +1,9 @@
-#Vehicle Control System
+# Vehicle Control System
+
+## What is VCS?
+In modern vehicles almost 80% of the vehicle is controlled electronically. That's just VCS, a control system. Focused on electric vehicles but can be easily modified for other types.
+VCS consists of several units and modules, all connected by CAN bus allowing modularization.
+In this project you will find both the hardware and the software of each unit or module.
 
 <img src="https://github.com/KarlVaello/VCS/blob/master/WiringDiagram.png"
  alt="Wiring Diagram" title="Wiring Diagram" align="right" />
@@ -20,7 +25,7 @@ MODULES:
 
 
 
-###SCREENSHOTS
+### SCREENSHOTS
 
 ![Alt text](/Screenshots/cluster.PNG?raw=true "Wiring Diagram")
 
@@ -29,6 +34,6 @@ MODULES:
  
 
 
-#Full Documentation
+# Full Documentation
 
 See the Wiki for full documentation, examples, operational details and other information.
