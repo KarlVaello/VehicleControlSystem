@@ -1,6 +1,6 @@
 # Vehicle Control System
 
-## What is VCS?
+### What is VCS?
 In modern vehicles almost 80% of the vehicle is controlled electronically. That's just VCS, a control system. Focused on electric vehicles but can be easily modified for other types.
 VCS consists of several units and modules, all connected by CAN bus allowing modularization.
 In this project you will find both the hardware and the software of each unit or module.
