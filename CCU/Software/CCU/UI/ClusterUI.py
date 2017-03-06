@@ -74,7 +74,7 @@ class ClusterUI(QtGui.QWidget):
         qspeed = QtGui.QPainter(self)
         qspeed.setPen(QtGui.QColor(220, 220, 220))
         qspeed.setFont(QtGui.QFont('LCDMono2', 50))
-        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) -60,(self.clusterDisplayHight / 2) - 55 ,120,55),QtCore.Qt.AlignCenter, str(self.speed))
+        qspeed.drawText(QtCore.QRect((self.clusterDisplayWidth / 2) -60,(self.clusterDisplayHight / 2) - 55 ,120,100),QtCore.Qt.AlignCenter, str(self.speed))
         qspeed.end()
         
         qBatteryBar = QtGui.QPainter(self)
@@ -147,7 +147,7 @@ class upateThread(QtCore.QThread):
         
     def run(self):
         while True:  
-            self.msleep(2)
+            self.msleep(10)
             #QSound.play("beep1.wav")
             #print QSound.isAvailable()
         
@@ -175,6 +175,7 @@ class upateThread(QtCore.QThread):
             
             #print (ser.readline().strip())
             #self.progress.emit(str(ser.readline().strip())+ ";" + str(self.aCurrentBattery))
-            self.progress.emit("1;" + str(self.aSpeed)+ ";30")
+            self.progress.emit("0;" + str(self.aSpeed)+ ";30")
+            #self.progress.emit("1;" + "40" + ";30")
             
     
