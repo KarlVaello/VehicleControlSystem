@@ -17,7 +17,7 @@ Cluster::Cluster(QWidget *parent)
     : QWidget(parent)
 {
     QTimer *timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(repaint()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(0.5f);
     setWindowTitle(tr("Analog Clock"));
 
