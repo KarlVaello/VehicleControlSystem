@@ -7,7 +7,11 @@ SOURCES += \
     cluster.cpp
 
 DISTFILES += \
-    img/outiline.svg
+    img/outiline.svg \
+    img/speedPointer.svg
 
 HEADERS += \
     cluster.h
+
+RESOURCES += \
+    resources.qrc

@@ -34,10 +34,12 @@
 	.st28{font-family:'Verdana';}
 	.st29{font-size:8px;}
 	.st30{font-size:6px;}
-	.st31{fill:none;stroke:#55E9F9;stroke-width:2;stroke-miterlimit:10;}
-	.st32{fill:none;stroke:#26A4C6;stroke-miterlimit:10;}
-	.st33{display:inline;fill:none;stroke:#C10000;stroke-miterlimit:10;}
-	.st34{display:inline;fill:none;stroke:#AD6423;stroke-miterlimit:10;}
+	.st31{display:inline;fill:none;stroke:#26A4C6;stroke-miterlimit:10;}
+	.st32{display:inline;fill:none;stroke:#55E9F9;stroke-width:2;stroke-miterlimit:10;}
+	.st33{fill:none;stroke:#55E9F9;stroke-width:2;stroke-miterlimit:10;}
+	.st34{fill:none;stroke:#26A4C6;stroke-miterlimit:10;}
+	.st35{display:inline;fill:none;stroke:#C10000;stroke-miterlimit:10;}
+	.st36{display:inline;fill:none;stroke:#AD6423;stroke-miterlimit:10;}
 </style>
 <g id="Capa_10" class="st0">
 	<rect x="116" y="265.2" class="st1" width="828.7" height="310.7"/>
@@ -252,35 +254,57 @@
 		<rect x="630.5" y="503.8" class="st8" width="16.7" height="9.1"/>
 		<text transform="matrix(1 0 0 1 634.3977 508.3546)" class="st9 st28 st30">km</text>
 	</g>
+	<g id="Capa_13">
+		<circle class="st31" cx="530.3" cy="420.6" r="55.8"/>
+		<line class="st32" x1="470.7" y1="420.6" x2="421.2" y2="420.6"/>
+		<g id="Capa_14" class="st2">
+			<line class="st33" x1="421.2" y1="420.6" x2="470.8" y2="418.6"/>
+			<line class="st33" x1="421.2" y1="420.6" x2="470.8" y2="422.6"/>
+			<path class="st34" d="M470.7,420.6c0,0,0-5.4,0.7-7c0.7-1.7,4.3-5,4.3-5"/>
+			<path class="st34" d="M470.7,420.6c0,0,0,5.4,0.7,7c0.7,1.7,4.3,5,4.3,5"/>
+		</g>
+	</g>
 	<g id="Capa_22" class="st2">
 		<path class="st3" d="M606.7,487.8l-3.4-3.1c-5.7-5.3-13.3-8.2-21.1-8.2h-52h-52c-7.8,0-15.3,2.9-21.1,8.2l-3.4,3.1"/>
 	</g>
 </g>
-<g id="Capa_13_copia_2">
+<g id="Capa_13_copia_2" class="st0">
 </g>
-<g id="Capa_13_copia">
-	<g id="Capa_14_copia_2">
-		<line class="st31" x1="630.9" y1="420.6" x2="586.3" y2="422.6"/>
-		<line class="st31" x1="630.9" y1="420.6" x2="586.3" y2="418.6"/>
-		<line class="st31" x1="586.1" y1="420.6" x2="630.9" y2="420.6"/>
+<g id="Capa_13_copia" class="st0">
+	<g id="Capa_14_copia_2" class="st2">
+		<line class="st33" x1="442.6" y1="467.3" x2="480" y2="445.1"/>
+		<line class="st33" x1="442.6" y1="467.3" x2="481.9" y2="448.6"/>
+		<line class="st33" x1="480.9" y1="446.9" x2="442.6" y2="467.3"/>
+		<g id="Capa_14_copia">
+			<path class="st34" d="M480.9,446.9c0,0,2.5,4.8,3.9,5.9c1.4,1.2,6.1,2.4,6.1,2.4"/>
+			<path class="st34" d="M480.9,446.9c0,0-2.5-4.8-2.7-6.5c-0.2-1.8,1.4-6.4,1.4-6.4"/>
+		</g>
 	</g>
-	<circle class="st32" cx="530.2" cy="420.5" r="52.4"/>
-	<g id="Capa_14_copia">
-		<path class="st32" d="M586.1,420.6c0,0,0-5.4-0.7-7c-0.7-1.7-4.3-5-4.3-5"/>
-		<path class="st32" d="M586.1,420.6c0,0,0,5.4-0.7,7c-0.7,1.7-4.3,5-4.3,5"/>
+	<circle class="st31" cx="530.4" cy="420.5" r="52.4"/>
+</g>
+<g id="Capa_13_copia_1_">
+	<g id="Capa_14_copia_2_1_">
+		<line class="st33" x1="28.2" y1="311.9" x2="65.7" y2="289.8"/>
+		<line class="st33" x1="28.2" y1="311.9" x2="67.6" y2="293.3"/>
+		<line class="st33" x1="66.6" y1="291.6" x2="28.2" y2="311.9"/>
+		<g id="Capa_14_copia_1_">
+			<path class="st34" d="M66.6,291.6c0,0,2.5,4.8,3.9,5.9c1.4,1.2,6.1,2.4,6.1,2.4"/>
+			<path class="st34" d="M66.6,291.6c0,0-2.5-4.8-2.7-6.5c-0.2-1.8,1.4-6.4,1.4-6.4"/>
+		</g>
 	</g>
+	<circle class="st34" cx="116" cy="265.2" r="52.4"/>
 </g>
 <g id="Capa_3_copia_2" class="st0">
-	<path class="st33" d="M530.3,277.6c0,0-173.8,8.4-226.1,19.1c-32.4,6.6-111.9,46.5-138.2,62.9c-22.8,14.3-44.7,25.8-37,52.6
+	<path class="st35" d="M530.3,277.6c0,0-173.8,8.4-226.1,19.1c-32.4,6.6-111.9,46.5-138.2,62.9c-22.8,14.3-44.7,25.8-37,52.6
 		c14.6,50.3,69.3,144,103.8,144l136.7-0.2c8.9,0.3,20.8-7.2,26.5-17.2l19.3-32.1c7.3-10.6,16.4-13.5,27.8-13.5H530"/>
 </g>
 <g id="Capa_5" class="st0">
-	<line class="st34" x1="530.3" y1="265.2" x2="530.3" y2="575.9"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="944.7" y2="420.6"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="913.1" y2="579.1"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="823.3" y2="713.5"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="237.4" y2="713.5"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="116" y2="420.6"/>
-	<line class="st34" x1="530.3" y1="420.6" x2="147.5" y2="579.1"/>
+	<line class="st36" x1="530.3" y1="265.2" x2="530.3" y2="575.9"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="944.7" y2="420.6"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="913.1" y2="579.1"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="823.3" y2="713.5"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="237.4" y2="713.5"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="116" y2="420.6"/>
+	<line class="st36" x1="530.3" y1="420.6" x2="147.5" y2="579.1"/>
 </g>
 </svg>

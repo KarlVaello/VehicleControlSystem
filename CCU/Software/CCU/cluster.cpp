@@ -41,8 +41,8 @@ Cluster::Cluster(QWidget *parent)
     serial->setStopBits(QSerialPort::StopBits(1));
 
     serial->open(QIODevice::ReadWrite);
-    outlineRenderer = new QSvgRenderer(QString("C:\\Users\\Karl\\Documents\\CCU\\img\\outiline.svg"));
-    speedPointerRenderer = new QSvgRenderer(QString("C:\\Users\\Karl\\Desktop\\VCS\\CCU\\Software\\CCU\\UI\\speedPointer.svg"));
+    outlineRenderer = new QSvgRenderer(QString(":/img/outline.svg"));
+    speedPointerRenderer = new QSvgRenderer(QString(":/img/speedPointer.svg"));
 
     painterOutline = new QPainter (this);
     painterSpeedPointer = new QPainter (this);
