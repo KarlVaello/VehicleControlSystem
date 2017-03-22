@@ -10,14 +10,15 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QMessageBox>
 #include <iostream>
-#include <notificationinfo.h>
+#include <notificationInfo.h>
+#include <notificationManager.h>
 
 Cluster::Cluster(QWidget *parent)
     : QWidget(parent)
 {
     QTimer *timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(1);
+    timer->start(0.05f);
     setWindowTitle(tr("Analog Clock"));
 
 
@@ -39,22 +40,33 @@ Cluster::Cluster(QWidget *parent)
     serial->setDataBits(QSerialPort::DataBits(8));
     serial->setStopBits(QSerialPort::StopBits(1));
 
-    serial->open(QIODevice::ReadWrite);
+    boolean serialConnection = serial->open(QIODevice::ReadWrite);
+
+
+    ntManager = new NotificationManager();
+
+    qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
+
+    if(serialConnection){
+
+        NotificationInfo *n01 = new NotificationInfo(0,"Serial Error");
+        ntManager->apendNotification(n01);
+        qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
+    }
+
     outlineRenderer = new QSvgRenderer(QString(":/img/outline.svg"));
     speedPointerRenderer = new QSvgRenderer(QString(":/img/speedPointer.svg"));
+    notificationBannerRenderer = new QSvgRenderer(QString(":/img/notificationBanner.svg"));
 
     painterOutline = new QPainter (this);
     painterSpeedPointer = new QPainter (this);
     speedLabel = new QPainter(this);
+    notBanner = new QPainter(this);
+    notTitleLabel = new QPainter(this);
 
     serialBuffer = "";
 
-    NotificationInfo *nI = new NotificationInfo(0,"Serial Error");
-    std::cout << "NotificationInfo title: " << nI->getTitle() << "\n";
-    std::cin.get();
-
-
-
+    qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
 
 }
 
@@ -78,6 +90,7 @@ void Cluster::paintEvent(QPaintEvent *)
         currentLabelSpeed = (int)currentSpeed;
         rS = 0;
     }
+
     speedLabel->begin(this);
     speedLabel->setPen(QColor(220, 220, 220));
     speedLabel->setFont(QFont("LCDMono", 50));
@@ -85,8 +98,20 @@ void Cluster::paintEvent(QPaintEvent *)
     speedLabel->end();
 
 
-}
+    notBanner->begin(this);
+    notBanner->translate(200, 100);
+    notBanner->scale(0.1f,0.1f);
+    notificationBannerRenderer->render(notBanner);
+    notBanner->end();
 
+
+    notTitleLabel->begin(this);
+    notTitleLabel->setPen(QColor(220, 220, 220));
+    notTitleLabel->setFont(QFont("Arial", 8));
+    notTitleLabel->drawText(QRect(250, 100 ,120,100),QString::fromStdString(ntManager->getNotificationList().at(0)->getTitle()));
+    notTitleLabel->end();
+
+}
 
 void Cluster::readData()
 {

@@ -6,6 +6,8 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSvg/QtSvg>
 #include <QtSvg/QSvgRenderer>
+#include <notificationInfo.h>
+#include <notificationManager.h>
 
 class Cluster : public QWidget
 {
@@ -29,11 +31,19 @@ private:
     QPainter *painterOutline;
     QPainter *painterSpeedPointer;
     QPainter *speedLabel;
+    QPainter *notTitleLabel;
+    QPainter *notBanner;
+
     QSvgRenderer *outlineRenderer;
     QSvgRenderer *speedPointerRenderer;
-
+    QSvgRenderer *notificationBannerRenderer;
     QByteArray serialData;
     QString serialBuffer;
+
+
+    NotificationManager *ntManager;
+    NotificationInfo *nI;
+
 
 protected:
     void paintEvent(QPaintEvent *event) override;

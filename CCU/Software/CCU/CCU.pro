@@ -5,8 +5,9 @@ greaterThan(QT_MAJOR_VERSION,4): QT += widgets
 SOURCES += \
     main.cpp \
     cluster.cpp \
-    notificationinfo.cpp \
-    notificationwidget.cpp
+    notificationInfo.cpp \
+    notificationManager.cpp \
+    notificationWidget.cpp
 
 DISTFILES += \
     img/outiline.svg \
@@ -14,8 +15,9 @@ DISTFILES += \
 
 HEADERS += \
     cluster.h \
-    notificationinfo.h \
-    notificationwidget.h
+    notificationInfo.h \
+    notificationManager.h \
+    notificationWidget.h
 
 RESOURCES += \
     resources.qrc

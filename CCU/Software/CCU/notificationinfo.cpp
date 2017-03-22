@@ -1,4 +1,4 @@
-#include "notificationinfo.h"
+#include "notificationInfo.h"
 #include <string>
 
 NotificationInfo::NotificationInfo(){}

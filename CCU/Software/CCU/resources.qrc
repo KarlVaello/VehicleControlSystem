@@ -2,5 +2,6 @@
 <qresource>
     <file>img/outline.svg</file>
     <file>img/speedPointer.svg</file>
+    <file>img/notificationBanner.svg</file>
 </qresource>
 </RCC>
