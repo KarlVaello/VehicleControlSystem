@@ -4,14 +4,18 @@ greaterThan(QT_MAJOR_VERSION,4): QT += widgets
 
 SOURCES += \
     main.cpp \
-    cluster.cpp
+    cluster.cpp \
+    notificationinfo.cpp \
+    notificationwidget.cpp
 
 DISTFILES += \
     img/outiline.svg \
     img/speedPointer.svg
 
 HEADERS += \
-    cluster.h
+    cluster.h \
+    notificationinfo.h \
+    notificationwidget.h
 
 RESOURCES += \
     resources.qrc

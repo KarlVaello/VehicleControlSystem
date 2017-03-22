@@ -49,10 +49,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../CCU/main.cpp \
-		../CCU/cluster.cpp qrc_resources.cpp \
+		../CCU/cluster.cpp \
+		../CCU/notificationinfo.cpp \
+		../CCU/notificationwidget.cpp qrc_resources.cpp \
 		moc_cluster.cpp
 OBJECTS       = main.o \
 		cluster.o \
+		notificationinfo.o \
+		notificationwidget.o \
 		qrc_resources.o \
 		moc_cluster.o
 DIST          = ../CCU/img/outiline.svg \
@@ -206,6 +210,7 @@ DIST          = ../CCU/img/outiline.svg \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf \
+		../CCU/.qmake.stash \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf \
@@ -232,8 +237,12 @@ DIST          = ../CCU/img/outiline.svg \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exceptions.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/yacc.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/lex.prf \
-		../CCU/CCU.pro ../CCU/cluster.h ../CCU/main.cpp \
-		../CCU/cluster.cpp
+		../CCU/CCU.pro ../CCU/cluster.h \
+		../CCU/notificationinfo.h \
+		../CCU/notificationwidget.h ../CCU/main.cpp \
+		../CCU/cluster.cpp \
+		../CCU/notificationinfo.cpp \
+		../CCU/notificationwidget.cpp
 QMAKE_TARGET  = CCU
 DESTDIR       = 
 TARGET        = CCU.app/Contents/MacOS/CCU
@@ -395,6 +404,7 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf \
@@ -578,6 +588,7 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf:
@@ -642,8 +653,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CCU/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CCU/cluster.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CCU/main.cpp ../CCU/cluster.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CCU/cluster.h ../CCU/notificationinfo.h ../CCU/notificationwidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CCU/main.cpp ../CCU/cluster.cpp ../CCU/notificationinfo.cpp ../CCU/notificationwidget.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -653,6 +664,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r CCU.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -856,8 +868,16 @@ cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QLabel \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../CCU/notificationinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cluster.o ../CCU/cluster.cpp
+
+notificationinfo.o: ../CCU/notificationinfo.cpp ../CCU/notificationinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o notificationinfo.o ../CCU/notificationinfo.cpp
+
+notificationwidget.o: ../CCU/notificationwidget.cpp ../CCU/notificationwidget.h \
+		../CCU/notificationinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o notificationwidget.o ../CCU/notificationwidget.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp

@@ -1,8 +1,6 @@
 #include "cluster.h"
 #include <QtWidgets>
 #include <QApplication>
-#include <QPushButton>
-#include <QLabel>
 #include <QtSvg/QtSvg>
 #include <QtSvg/QSvgRenderer>
 #include <QDebug>
@@ -12,13 +10,14 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QMessageBox>
 #include <iostream>
+#include <notificationinfo.h>
 
 Cluster::Cluster(QWidget *parent)
     : QWidget(parent)
 {
     QTimer *timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(0.5f);
+    timer->start(1);
     setWindowTitle(tr("Analog Clock"));
 
 
@@ -49,9 +48,17 @@ Cluster::Cluster(QWidget *parent)
     speedLabel = new QPainter(this);
 
     serialBuffer = "";
+
+    NotificationInfo *nI = new NotificationInfo(0,"Serial Error");
+    std::cout << "NotificationInfo title: " << nI->getTitle() << "\n";
+    std::cin.get();
+
+
+
+
 }
 
-void Cluster::paintEvent(QPaintEvent *event)
+void Cluster::paintEvent(QPaintEvent *)
 {
 
     connect(serial, &QSerialPort::readyRead, this, &Cluster::readData);
@@ -73,7 +80,7 @@ void Cluster::paintEvent(QPaintEvent *event)
     }
     speedLabel->begin(this);
     speedLabel->setPen(QColor(220, 220, 220));
-    speedLabel->setFont(QFont("Arial", 50));
+    speedLabel->setFont(QFont("LCDMono", 50));
     speedLabel->drawText(QRect(580, 180 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
     speedLabel->end();
 
