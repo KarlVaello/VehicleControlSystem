@@ -12,6 +12,8 @@
 #include <iostream>
 #include <notificationInfo.h>
 #include <notificationManager.h>
+#include <notificationWidget.h>
+#include <notificationWidgetManager.h>
 
 Cluster::Cluster(QWidget *parent)
     : QWidget(parent)
@@ -40,17 +42,21 @@ Cluster::Cluster(QWidget *parent)
     serial->setDataBits(QSerialPort::DataBits(8));
     serial->setStopBits(QSerialPort::StopBits(1));
 
-    boolean serialConnection = serial->open(QIODevice::ReadWrite);
+    bool serialConnection = serial->open(QIODevice::ReadWrite);
 
 
     ntManager = new NotificationManager();
 
+    ntWidgetManager = new NotificationWidgetManager();
     qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
 
-    if(serialConnection){
+    if(!serialConnection){
 
         NotificationInfo *n01 = new NotificationInfo(0,"Serial Error");
         ntManager->apendNotification(n01);
+        NotificationWidget *a = new NotificationWidget(ntManager->getNotificationList().at(0),250,200,this);
+
+        ntWidgetManager->apendNotificationWidget(a);
         qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
     }
 
@@ -59,10 +65,12 @@ Cluster::Cluster(QWidget *parent)
     notificationBannerRenderer = new QSvgRenderer(QString(":/img/notificationBanner.svg"));
 
     painterOutline = new QPainter (this);
+    painterOutline->end();
     painterSpeedPointer = new QPainter (this);
+    painterSpeedPointer->end(),
     speedLabel = new QPainter(this);
-    notBanner = new QPainter(this);
-    notTitleLabel = new QPainter(this);
+    speedLabel->end();
+
 
     serialBuffer = "";
 
@@ -98,18 +106,7 @@ void Cluster::paintEvent(QPaintEvent *)
     speedLabel->end();
 
 
-    notBanner->begin(this);
-    notBanner->translate(200, 100);
-    notBanner->scale(0.1f,0.1f);
-    notificationBannerRenderer->render(notBanner);
-    notBanner->end();
-
-
-    notTitleLabel->begin(this);
-    notTitleLabel->setPen(QColor(220, 220, 220));
-    notTitleLabel->setFont(QFont("Arial", 8));
-    notTitleLabel->drawText(QRect(250, 100 ,120,100),QString::fromStdString(ntManager->getNotificationList().at(0)->getTitle()));
-    notTitleLabel->end();
+    ntWidgetManager->getNotificationWidgetList().at(0)->show();
 
 }
 

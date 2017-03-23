@@ -8,17 +8,17 @@
 class NotificationWidget
 {
 private:
-    NotificationInfo notification;
-    //QPaintDevice paintDev;
-    //QPainter *notTitleLabel;
+    NotificationInfo *notificationInfo;
+    QPaintDevice *painterDevice;
+    QPainter *notificationTitleLabel;
+    QPainter *notificationIcon;
     int xPosition;
     int yPosition;
 
 public:
     NotificationWidget();
-    NotificationWidget(NotificationInfo nt, int xPos, int yPos);
+    NotificationWidget(NotificationInfo *nt, int xPos, int yPos,QPaintDevice *pntDvc);
     NotificationInfo getNotification();
-    void setNotification(NotificationInfo &value);
 
     void show();
 

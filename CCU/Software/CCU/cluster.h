@@ -8,6 +8,7 @@
 #include <QtSvg/QSvgRenderer>
 #include <notificationInfo.h>
 #include <notificationManager.h>
+#include <notificationWidgetManager.h>
 
 class Cluster : public QWidget
 {
@@ -42,6 +43,7 @@ private:
 
 
     NotificationManager *ntManager;
+    NotificationWidgetManager *ntWidgetManager;
     NotificationInfo *nI;
 
 

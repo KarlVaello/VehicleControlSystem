@@ -7,7 +7,8 @@ SOURCES += \
     cluster.cpp \
     notificationInfo.cpp \
     notificationManager.cpp \
-    notificationWidget.cpp
+    notificationWidget.cpp \
+    notificationWidgetManager.cpp
 
 DISTFILES += \
     img/outiline.svg \
@@ -17,7 +18,8 @@ HEADERS += \
     cluster.h \
     notificationInfo.h \
     notificationManager.h \
-    notificationWidget.h
+    notificationWidget.h \
+    notificationWidgetManager.h
 
 RESOURCES += \
     resources.qrc
