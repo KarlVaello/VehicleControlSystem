@@ -693,7 +693,8 @@ qrc_resources.cpp: ../CCU/resources.qrc \
 		/Users/cvaello/Qt/5.8/clang_64/bin/rcc \
 		../CCU/img/notificationBanner.svg \
 		../CCU/img/speedPointer.svg \
-		../CCU/img/outline.svg
+		../CCU/img/outline.svg \
+		../CCU/img/errorIcon.svg
 	/Users/cvaello/Qt/5.8/clang_64/bin/rcc -name resources ../CCU/resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -713,6 +714,137 @@ moc_cluster.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/
 		../CCU/notificationManager.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QList \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../CCU/notificationWidgetManager.h \
+		../CCU/notificationWidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qaction.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolormap.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcompleter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdial.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdirmodel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qformlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qframe.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgesture.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qheaderview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qkeyeventtransition.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmenubar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmouseeventtransition.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qopenglwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qrubberband.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscroller.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qshortcut.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsplitter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtabbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtooltip.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreeview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundogroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundostack.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundoview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwizard.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../CCU/cluster.h \
 		moc_predefs.h \
 		/Users/cvaello/Qt/5.8/clang_64/bin/moc
@@ -744,7 +876,136 @@ main.o: ../CCU/main.cpp /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/H
 		../CCU/notificationInfo.h \
 		../CCU/notificationManager.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QList \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../CCU/notificationWidgetManager.h \
+		../CCU/notificationWidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractitemview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractslider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qaction.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qactiongroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qbuttongroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcalendarwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolormap.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolumnview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcommandlinkbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcommonstyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcompleter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdatawidgetmapper.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdatetimeedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdesktopwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdial.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdirmodel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdockwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdrawutil.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qerrormessage.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfileiconprovider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfilesystemmodel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfocusframe.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfontcombobox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qfontdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qformlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qframe.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgesture.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgesturerecognizer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsanchorlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicseffect.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsgridlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitemanimation.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslayoutitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicslinearlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicstransform.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgraphicswidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qgroupbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qheaderview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qitemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qitemeditorfactory.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qkeyeventtransition.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qkeysequenceedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmenubar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qmouseeventtransition.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qopenglwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qplaintextedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qprogressbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qprogressdialog.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qproxystyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qradiobutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qrubberband.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscroller.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qscrollerproperties.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qshortcut.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsizegrip.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qslider.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsplashscreen.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsplitter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstackedlayout.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyle.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleditemdelegate.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstylefactory.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstylepainter.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qstyleplugin.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qsystemtrayicon.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtabbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtabwidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtextbrowser.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbox.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtoolbutton.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtooltip.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreeview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreewidget.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtreewidgetitemiterator.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundogroup.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundostack.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qundoview.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwhatsthis.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidgetaction.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwizard.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CCU/main.cpp
 
 cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
@@ -756,6 +1017,8 @@ cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
 		../CCU/notificationManager.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QList \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		../CCU/notificationWidgetManager.h \
+		../CCU/notificationWidget.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -887,9 +1150,7 @@ cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
-		../CCU/notificationWidget.h \
-		../CCU/notificationWidgetManager.h
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cluster.o ../CCU/cluster.cpp
 
 notificationInfo.o: ../CCU/notificationInfo.cpp ../CCU/notificationInfo.h

@@ -4,6 +4,8 @@
 #include <notificationInfo.h>
 #include <QtWidgets>
 #include <QApplication>
+#include <QtSvg/QtSvg>
+#include <QtSvg/QSvgRenderer>
 
 class NotificationWidget
 {
@@ -11,7 +13,10 @@ private:
     NotificationInfo *notificationInfo;
     QPaintDevice *painterDevice;
     QPainter *notificationTitleLabel;
-    QPainter *notificationIcon;
+    QPainter *notificationIconPainter;
+
+    QSvgRenderer *notificationIconRenderer;
+
     int xPosition;
     int yPosition;
 
