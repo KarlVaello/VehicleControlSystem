@@ -28,8 +28,8 @@ Cluster::Cluster(QWidget *parent , UnitCommunication *ccu_COM, Infotainment *inf
     time = new QTime();
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(1);
-    setWindowTitle(tr("Analog Clock"));
+    timer->start(0.05f);
+    setWindowTitle(tr("VCS"));
 
 
     resize(1280, 480);
@@ -117,40 +117,38 @@ void Cluster::paintEvent(QPaintEvent *)
         }
 
     }else{
-        //connect(centralControlUnit_COM->getDataIn_port(), &QSerialPort::readyRead, this, &Cluster::readData);
-        //connect(centralControlUnit_COM->getDataIn_port(), &QSerialPort::readyRead, this, &Cluster::readData);
-        //centralControlUnit_COM->readData();
-        //connect(centralControlUnit_COM->getDataIn_port(), &QSerialPort::readyRead, centralControlUnit_COM, &UnitCommunication::readData);
+
         centralControlUnit_COM->readData();
 
         painterOutline->begin(this);
         outlineRenderer->render(painterOutline);
         painterOutline->end();
 
-        painterSpeedPointer->begin(this);
-        painterSpeedPointer->translate(1280/2, 480/2);
-        //painterSpeedPointer->rotate((lastSpeed + ((currentSpeed - lastSpeed)/2)) * 0.845f);
-        painterSpeedPointer->rotate(infotaiment->getSpeed() * 0.845f);
-        speedPointerRenderer->render(painterSpeedPointer);
-        painterSpeedPointer->end();
-
-        rS++;
-        if(rS > 6){
-            currentLabelSpeed = (int)currentSpeed;
-            rS = 0;
-        }
-
         painter_timeLabel->begin(this);
-        painter_timeLabel->setOpacity(painter_timeLabel->opacity() + 0.01f);
         painter_timeLabel->setPen(QColor(220, 220, 220));
         painter_timeLabel->setFont(QFont("LCDMono", 20));
         painter_timeLabel->drawText(QRect(580, 30 ,120,30),time->currentTime().toString(), Qt::AlignHCenter | Qt::AlignVCenter);
         painter_timeLabel->end();
 
+        painterSpeedPointer->begin(this);
+        painterSpeedPointer->translate(1280/2, 480/2);
+        qDebug() << "LS: " << infotaiment->getLastSpeed() << "Sp: " << infotaiment->getSpeed()/100 << ((float)infotaiment->getLastSpeed()/100 + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed()/100)/2));
+
+        painterSpeedPointer->rotate(((float)infotaiment->getLastSpeed() + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed())/2)) * 0.845f);
+        infotaiment->setLastSpeed((float)infotaiment->getLastSpeed()/100 + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed()/100)/2));
+        //painterSpeedPointer->rotate(infotaiment->getSpeed() * 0.845f);
+        speedPointerRenderer->render(painterSpeedPointer);
+        painterSpeedPointer->end();
+
+        rS++;
+        if(rS > 2){
+            currentLabelSpeed = (int)infotaiment->getSpeed()/100;
+            rS = 0;
+        }
         speedLabel->begin(this);
         speedLabel->setPen(QColor(220, 220, 220));
         speedLabel->setFont(QFont("LCDMono", 55));
-        speedLabel->drawText(QRect(580, 180 ,120,100),QString::number(infotaiment->getSpeed()), Qt::AlignHCenter | Qt::AlignVCenter);
+        speedLabel->drawText(QRect(580, 180 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
         speedLabel->end();
 
         //ntWidgetManager->getNotificationWidgetList().at(0)->show();

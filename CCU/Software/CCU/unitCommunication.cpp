@@ -26,7 +26,8 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
     //dataOut_port->setStopBits(QSerialPort::StopBits(1));
     //dataOut_port->open(QIODevice::WriteOnly);
 
-    dataIn_port->setPortName("/dev/cu.usbmodemFA131");
+    //dataIn_port->setPortName("/dev/cu.usbmodemFA131");
+    dataIn_port->setPortName("COM8");
     dataIn_port->setBaudRate(115200);
     qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
 }
@@ -62,37 +63,37 @@ void UnitCommunication::readData(){
         b10 = static_cast<int>(dataIn_data[10]);
         b11 = static_cast<int>(dataIn_data[11]);
         b12 = static_cast<int>(dataIn_data[12]);
-        qDebug() <<""<<"dataIn_buffer[" << dataIn_data.size() << "] "<< dataIn_data;
+        //qDebug() <<""<<"dataIn_buffer[" << dataIn_data.size() << "] "<< dataIn_data;
 
-        qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
-                     "/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
+        //qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
+        //             "/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
 
         ercSum = b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10;
 
-        qDebug()<< "ercSum:  " << ercSum;
+        //qDebug()<< "ercSum:  " << ercSum;
 
         QString ercSum_P1 = QString::number(b11,16) + QString::number(b12,16);
-        qDebug()<< "ercSum_P1  " << b11 << " - " << b12;
+        //qDebug()<< "ercSum_P1  " << b11 << " - " << b12;
 
         bool bStatus2 = false;
         int nHex2 = ercSum_P1.toUInt(&bStatus2,16);
 
-        qDebug()<< "ercSum_P1 _ b11 b12: " << nHex2;
+        //qDebug()<< "ercSum_P1 _ b11 b12: " << nHex2;
 
         if(ercSum  ==  nHex2){
             goodDataCounter++;
             QString a = QString::number(b4,16) + QString::number(b5,16);
-            qDebug()<< "d1h y d2h: " << a;
+            //qDebug()<< "d1h y d2h: " << a;
 
             if (a.length() <4){
                 a = a + "0";
-                qDebug()<< "CORRECTED: d1h y d2h: " << a;
+                //qDebug()<< "CORRECTED: d1h y d2h: " << a;
             }
 
             bool bStatus = false;
-            int nHex = a.toUInt(&bStatus,16);
+            float nHex = a.toUInt(&bStatus,16);
 
-            qDebug()<< "final: " << nHex;
+           // qDebug()<< "final: " << nHex;
             if( b0 != 0){
                 //"DATA NOT FOT ME - DO NOTHING";
             }else{ // DATA IS FOR ME
@@ -101,7 +102,7 @@ void UnitCommunication::readData(){
                     switch (b2) {
                     case 0:
                         //infotaiment->setThrottle(b3);
-                        infotaiment->setSpeed(nHex/100);
+                        infotaiment->setSpeed(nHex);
                         qDebug() << "Speed: " << (nHex);
                         break;
                     case 1:
