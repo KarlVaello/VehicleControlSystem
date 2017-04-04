@@ -19,10 +19,11 @@ private:
 
     int xPosition;
     int yPosition;
+    int type;
 
 public:
     NotificationWidget();
-    NotificationWidget(NotificationInfo *nt, int xPos, int yPos,QPaintDevice *pntDvc);
+    NotificationWidget(NotificationInfo *nt, int xPos, int yPos, QPaintDevice *pntDvc);
     NotificationInfo getNotification();
 
     void show();

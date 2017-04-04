@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_SVG_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_SVG_LIB -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -g -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -g -std=gnu++11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../CCU -I. -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -F/Users/cvaello/Qt/5.8/clang_64/lib
+INCPATH       = -I../CCU -I. -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -F/Users/cvaello/Qt/5.8/clang_64/lib
 QMAKE         = /Users/cvaello/Qt/5.8/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = CCU1.0.0
 DISTDIR = /Users/cvaello/Desktop/VCS/CCU/Software/build-CCU-Desktop_Qt_5_8_0_clang_64bit-Debug/.tmp/CCU1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_LFLAGS) -Wl,-rpath,/Users/cvaello/Qt/5.8/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/cvaello/Qt/5.8/clang_64/lib -framework QtSvg -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSerialPort -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/cvaello/Qt/5.8/clang_64/lib -framework QtSvg -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtMultimediaWidgets -framework QtMultimedia -framework QtNetwork -framework QtSerialPort -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -53,16 +53,28 @@ SOURCES       = ../CCU/main.cpp \
 		../CCU/notificationInfo.cpp \
 		../CCU/notificationManager.cpp \
 		../CCU/notificationWidget.cpp \
-		../CCU/notificationWidgetManager.cpp qrc_resources.cpp \
-		moc_cluster.cpp
+		../CCU/notificationWidgetManager.cpp \
+		../CCU/cameraStream.cpp \
+		../CCU/captureBuffer.cpp \
+		../CCU/unitCommunication.cpp \
+		../CCU/infotainment.cpp qrc_resources.cpp \
+		moc_cluster.cpp \
+		moc_cameraStream.cpp \
+		moc_captureBuffer.cpp
 OBJECTS       = main.o \
 		cluster.o \
 		notificationInfo.o \
 		notificationManager.o \
 		notificationWidget.o \
 		notificationWidgetManager.o \
+		cameraStream.o \
+		captureBuffer.o \
+		unitCommunication.o \
+		infotainment.o \
 		qrc_resources.o \
-		moc_cluster.o
+		moc_cluster.o \
+		moc_cameraStream.o \
+		moc_captureBuffer.o
 DIST          = ../CCU/img/outiline.svg \
 		../CCU/img/speedPointer.svg \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_pre.prf \
@@ -245,12 +257,20 @@ DIST          = ../CCU/img/outiline.svg \
 		../CCU/notificationInfo.h \
 		../CCU/notificationManager.h \
 		../CCU/notificationWidget.h \
-		../CCU/notificationWidgetManager.h ../CCU/main.cpp \
+		../CCU/notificationWidgetManager.h \
+		../CCU/cameraStream.h \
+		../CCU/captureBuffer.h \
+		../CCU/unitCommunication.h \
+		../CCU/infotainment.h ../CCU/main.cpp \
 		../CCU/cluster.cpp \
 		../CCU/notificationInfo.cpp \
 		../CCU/notificationManager.cpp \
 		../CCU/notificationWidget.cpp \
-		../CCU/notificationWidgetManager.cpp
+		../CCU/notificationWidgetManager.cpp \
+		../CCU/cameraStream.cpp \
+		../CCU/captureBuffer.cpp \
+		../CCU/unitCommunication.cpp \
+		../CCU/infotainment.cpp
 QMAKE_TARGET  = CCU
 DESTDIR       = 
 TARGET        = CCU.app/Contents/MacOS/CCU
@@ -442,9 +462,12 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 		../CCU/CCU.pro \
 		../CCU/resources.qrc \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/QtSvg.prl \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/QtMultimediaWidgets.prl \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/QtGui.prl \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/QtSerialPort.prl \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile ../CCU/CCU.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_pre.prf:
@@ -626,9 +649,12 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 ../CCU/CCU.pro:
 ../CCU/resources.qrc:
 /Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/QtSvg.prl:
+/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/QtMultimediaWidgets.prl:
 /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
+/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl:
 /Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/QtGui.prl:
 /Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/QtSerialPort.prl:
+/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
 /Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../CCU/CCU.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -661,8 +687,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CCU/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CCU/cluster.h ../CCU/notificationInfo.h ../CCU/notificationManager.h ../CCU/notificationWidget.h ../CCU/notificationWidgetManager.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CCU/main.cpp ../CCU/cluster.cpp ../CCU/notificationInfo.cpp ../CCU/notificationManager.cpp ../CCU/notificationWidget.cpp ../CCU/notificationWidgetManager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CCU/cluster.h ../CCU/notificationInfo.h ../CCU/notificationManager.h ../CCU/notificationWidget.h ../CCU/notificationWidgetManager.h ../CCU/cameraStream.h ../CCU/captureBuffer.h ../CCU/unitCommunication.h ../CCU/infotainment.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CCU/main.cpp ../CCU/cluster.cpp ../CCU/notificationInfo.cpp ../CCU/notificationManager.cpp ../CCU/notificationWidget.cpp ../CCU/notificationWidgetManager.cpp ../CCU/cameraStream.cpp ../CCU/captureBuffer.cpp ../CCU/unitCommunication.cpp ../CCU/infotainment.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -703,9 +729,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_cluster.cpp
+compiler_moc_header_make_all: moc_cluster.cpp moc_cameraStream.cpp moc_captureBuffer.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_cluster.cpp
+	-$(DEL_FILE) moc_cluster.cpp moc_cameraStream.cpp moc_captureBuffer.cpp
 moc_cluster.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
@@ -845,10 +871,44 @@ moc_cluster.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwizard.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraInfo \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamerainfo.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewFinder \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		../CCU/unitCommunication.h \
 		../CCU/cluster.h \
 		moc_predefs.h \
 		/Users/cvaello/Qt/5.8/clang_64/bin/moc
-	/Users/cvaello/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/cvaello/Desktop/VCS/CCU/Software/CCU -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/cvaello/Qt/5.8/clang_64/lib ../CCU/cluster.h -o moc_cluster.cpp
+	/Users/cvaello/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/cvaello/Desktop/VCS/CCU/Software/CCU -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/cvaello/Qt/5.8/clang_64/lib ../CCU/cluster.h -o moc_cluster.cpp
+
+moc_cameraStream.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraInfo \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamerainfo.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewFinder \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
+		../CCU/captureBuffer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QAbstractVideoSurface \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qabstractvideosurface.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../CCU/cameraStream.h \
+		moc_predefs.h \
+		/Users/cvaello/Qt/5.8/clang_64/bin/moc
+	/Users/cvaello/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/cvaello/Desktop/VCS/CCU/Software/CCU -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/cvaello/Qt/5.8/clang_64/lib ../CCU/cameraStream.h -o moc_cameraStream.cpp
+
+moc_captureBuffer.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QAbstractVideoSurface \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qabstractvideosurface.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../CCU/captureBuffer.h \
+		moc_predefs.h \
+		/Users/cvaello/Qt/5.8/clang_64/bin/moc
+	/Users/cvaello/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/cvaello/Desktop/VCS/CCU/Software/CCU -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSvg.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtSerialPort.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/cvaello/Qt/5.8/clang_64/lib ../CCU/captureBuffer.h -o moc_captureBuffer.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1005,7 +1065,23 @@ main.o: ../CCU/main.cpp /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/H
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwhatsthis.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidgetaction.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwizard.h \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraInfo \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamerainfo.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewFinder \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		../CCU/unitCommunication.h \
+		../CCU/cameraStream.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
+		../CCU/captureBuffer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QAbstractVideoSurface \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qabstractvideosurface.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../CCU/infotainment.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CCU/main.cpp
 
 cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
@@ -1148,9 +1224,19 @@ cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwizard.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsversion.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraInfo \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamerainfo.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewFinder \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		../CCU/unitCommunication.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../CCU/infotainment.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cluster.o ../CCU/cluster.cpp
 
 notificationInfo.o: ../CCU/notificationInfo.cpp ../CCU/notificationInfo.h
@@ -1431,11 +1517,48 @@ notificationWidgetManager.o: ../CCU/notificationWidgetManager.cpp ../CCU/notific
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o notificationWidgetManager.o ../CCU/notificationWidgetManager.cpp
 
+cameraStream.o: ../CCU/cameraStream.cpp ../CCU/cameraStream.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCamera \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamera.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraInfo \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcamerainfo.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/QCameraViewFinder \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
+		../CCU/captureBuffer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QAbstractVideoSurface \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qabstractvideosurface.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cameraStream.o ../CCU/cameraStream.cpp
+
+captureBuffer.o: ../CCU/captureBuffer.cpp ../CCU/captureBuffer.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QAbstractVideoSurface \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qabstractvideosurface.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o captureBuffer.o ../CCU/captureBuffer.cpp
+
+unitCommunication.o: ../CCU/unitCommunication.cpp ../CCU/unitCommunication.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o unitCommunication.o ../CCU/unitCommunication.cpp
+
+infotainment.o: ../CCU/infotainment.cpp ../CCU/infotainment.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o infotainment.o ../CCU/infotainment.cpp
+
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
 moc_cluster.o: moc_cluster.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cluster.o moc_cluster.cpp
+
+moc_cameraStream.o: moc_cameraStream.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cameraStream.o moc_cameraStream.cpp
+
+moc_captureBuffer.o: moc_captureBuffer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_captureBuffer.o moc_captureBuffer.cpp
 
 ####### Install
 

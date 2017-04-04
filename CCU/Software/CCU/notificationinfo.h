@@ -13,6 +13,7 @@ public:
     NotificationInfo(int ty);
     NotificationInfo(int ty, std::string tl);
     std::string getTitle();
+    int getType();
 };
 
 #endif // NOTIFICATIONINFO_H
