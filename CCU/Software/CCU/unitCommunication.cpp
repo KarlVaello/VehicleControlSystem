@@ -66,35 +66,49 @@ void UnitCommunication::readData(){
         //qDebug() <<""<<"dataIn_buffer[" << dataIn_data.size() << "] "<< dataIn_data;
 
         //qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
-        //             "/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
+                     //"/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
 
         ercSum = b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10;
 
         //qDebug()<< "ercSum:  " << ercSum;
 
-        QString ercSum_P1 = QString::number(b11,16) + QString::number(b12,16);
-        //qDebug()<< "ercSum_P1  " << b11 << " - " << b12;
-        qDebug()<< "ercSum_P1  " << ercSum_P1;
+        QString secondHex = "";
+
+        if (QString::number(b12,16).length()<2){
+
+            secondHex = "0" + QString::number(b12,16);
+
+        }else{
+            secondHex = QString::number(b12,16);
+        }
+
+        QString ercSum_P1 = QString::number(b11,16) + secondHex;
+        //qDebug()<< "ercSum_P1_  " << ercSum_P1;
 
         bool bStatus2 = false;
         int nHex2 = ercSum_P1.toUInt(&bStatus2,16);
 
-        //qDebug()<< "ercSum_P1 _ b11 b12: " << nHex2;
+        //qDebug()<< "ercSum_DE: " << nHex2;
 
         if(ercSum  ==  nHex2){
             goodDataCounter++;
-            QString a = QString::number(b4,16) + QString::number(b5,16);
-            qDebug()<< "d1h y d2h: " << a;
 
-            if (a.length() <4){
-                a = a + "0";
-                //qDebug()<< "CORRECTED: d1h y d2h: " << a;
+            QString secondHex2 = "";
+
+            if (QString::number(b5,16).length()<2){
+                secondHex2 = "0" + QString::number(b5,16);
+            }else{
+                secondHex2 = QString::number(b5,16);
             }
 
+            //qDebug()<< "speedHex sep " << b4 << " - " << b5;
+            QString a = QString::number(b4,16) + secondHex2;
+            //qDebug()<< "speedHex jun " << a;
             bool bStatus = false;
             float nHex = a.toUInt(&bStatus,16);
 
-           // qDebug()<< "final: " << nHex;
+            //qDebug()<< "final: " << nHex;
+
             if( b0 != 0){
                 //"DATA NOT FOT ME - DO NOTHING";
             }else{ // DATA IS FOR ME
@@ -131,6 +145,8 @@ void UnitCommunication::readData(){
         float errorCal = (100* (float)badDataCounter) / (float)totalMessages;
 
         qDebug() << "Total messages: " <<  totalMessages << " // good: " << goodDataCounter << " // " << "bad: " << badDataCounter << "// error%: " << errorCal << " %";
+
+
         qDebug()<< "-----------";
     }
 
