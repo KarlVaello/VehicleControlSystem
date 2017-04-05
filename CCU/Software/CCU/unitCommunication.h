@@ -4,11 +4,13 @@
 
 #include <QtSerialPort/QSerialPort>
 #include <infotainment.h>
+#include <QElapsedTimer>
 
 class UnitCommunication
 {
 private:
 
+    QElapsedTimer timer;
 
 
     Infotainment *infotaiment;
@@ -47,6 +49,7 @@ public slots:
 
 public:
     void readData();
+    float merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1);
     UnitCommunication(Infotainment *infota);
     QSerialPort *getDataIn_port();
     QSerialPort *getDataOut_port();

@@ -4,12 +4,6 @@
 #include <QtSvg/QtSvg>
 #include <QtSvg/QSvgRenderer>
 #include <QDebug>
-#include <QPixmap>
-#include <string>
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
-#include <QMessageBox>
-#include <iostream>
 #include <notificationInfo.h>
 #include <notificationManager.h>
 #include <notificationWidget.h>
@@ -30,7 +24,6 @@ Cluster::Cluster(QWidget *parent , UnitCommunication *ccu_COM, Infotainment *inf
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(1);
     setWindowTitle(tr("VCS"));
-
 
     resize(1280, 480);
 
