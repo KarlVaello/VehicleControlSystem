@@ -75,8 +75,8 @@ void UnitCommunication::readData(){
         if(ercSum  ==  merge_2hex8b_TO1hex16b(b11,b12)){
             goodDataCounter++;
 
-            if( b0 == 0){
-                switch (b1) {
+            if( b0 == 0){ // bit reciverID -> 0x00 means CCU
+                switch (b1) { // sender ID
                 case 1:
                     switch (b2) {
                     case 0:
@@ -96,9 +96,7 @@ void UnitCommunication::readData(){
             }
             dataIn_data = "";
         }else{
-            qWarning()<< "BAD DATA!!!!!!";
             badDataCounter++;
-
         }
         //int totalMessages = (goodDataCounter + badDataCounter);
         //float errorCal = (100* (float)badDataCounter) / (float)totalMessages;
