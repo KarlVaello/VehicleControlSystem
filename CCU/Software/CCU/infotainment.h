@@ -13,12 +13,12 @@ private:
 
 public:
     Infotainment();
-    float getSpeed();
-    void setSpeed(float value);
+    int getSpeed();
+    void setSpeed(int value);
     int getThrottle();
     void setThrottle(int value);
-    float getLastSpeed();
-    void setLastSpeed(float value);
+    int getLastSpeed();
+    void setLastSpeed(int value);
 };
 
 #endif // INFOTAINMENT_H

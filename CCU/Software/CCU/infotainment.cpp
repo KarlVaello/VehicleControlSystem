@@ -1,11 +1,11 @@
 #include "infotainment.h"
 
-float Infotainment::getSpeed()
+int Infotainment::getSpeed()
 {
     return speed;
 }
 
-void Infotainment::setSpeed(float value)
+void Infotainment::setSpeed(int value)
 {
     speed = value;
 }
@@ -20,12 +20,12 @@ void Infotainment::setThrottle(int value)
     throttle = value;
 }
 
-float Infotainment::getLastSpeed()
+int Infotainment::getLastSpeed()
 {
     return lastSpeed;
 }
 
-void Infotainment::setLastSpeed(float value)
+void Infotainment::setLastSpeed(int value)
 {
     lastSpeed = value;
 }

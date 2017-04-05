@@ -26,8 +26,8 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
     //dataOut_port->setStopBits(QSerialPort::StopBits(1));
     //dataOut_port->open(QIODevice::WriteOnly);
 
-    //dataIn_port->setPortName("/dev/cu.usbmodemFA131");
-    dataIn_port->setPortName("COM8");
+    dataIn_port->setPortName("/dev/cu.usbmodemFA131");
+    //dataIn_port->setPortName("COM8");
     dataIn_port->setBaudRate(115200);
     qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
 }
@@ -74,6 +74,7 @@ void UnitCommunication::readData(){
 
         QString ercSum_P1 = QString::number(b11,16) + QString::number(b12,16);
         //qDebug()<< "ercSum_P1  " << b11 << " - " << b12;
+        qDebug()<< "ercSum_P1  " << ercSum_P1;
 
         bool bStatus2 = false;
         int nHex2 = ercSum_P1.toUInt(&bStatus2,16);
@@ -83,7 +84,7 @@ void UnitCommunication::readData(){
         if(ercSum  ==  nHex2){
             goodDataCounter++;
             QString a = QString::number(b4,16) + QString::number(b5,16);
-            //qDebug()<< "d1h y d2h: " << a;
+            qDebug()<< "d1h y d2h: " << a;
 
             if (a.length() <4){
                 a = a + "0";
@@ -103,7 +104,7 @@ void UnitCommunication::readData(){
                     case 0:
                         //infotaiment->setThrottle(b3);
                         infotaiment->setSpeed(nHex);
-                        qDebug() << "Speed: " << (nHex);
+                        //qDebug() << "Speed: " << (nHex);
                         break;
                     case 1:
                         //infotaiment->setSpeed(d0);

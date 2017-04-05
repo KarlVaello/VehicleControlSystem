@@ -28,7 +28,7 @@ Cluster::Cluster(QWidget *parent , UnitCommunication *ccu_COM, Infotainment *inf
     time = new QTime();
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(0.05f);
+    timer->start(1);
     setWindowTitle(tr("VCS"));
 
 
@@ -132,16 +132,15 @@ void Cluster::paintEvent(QPaintEvent *)
 
         painterSpeedPointer->begin(this);
         painterSpeedPointer->translate(1280/2, 480/2);
-        qDebug() << "LS: " << infotaiment->getLastSpeed() << "Sp: " << infotaiment->getSpeed()/100 << ((float)infotaiment->getLastSpeed()/100 + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed()/100)/2));
+        //qDebug() << "LS:" << infotaiment->getLastSpeed() << " Sp:" << infotaiment->getSpeed() <<  " Lerp:" <<(infotaiment->getLastSpeed() + ((infotaiment->getSpeed() - infotaiment->getLastSpeed())/2));
 
-        painterSpeedPointer->rotate(((float)infotaiment->getLastSpeed() + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed())/2)) * 0.845f);
-        infotaiment->setLastSpeed((float)infotaiment->getLastSpeed()/100 + (((float)infotaiment->getSpeed()/100 - (float)infotaiment->getLastSpeed()/100)/2));
-        //painterSpeedPointer->rotate(infotaiment->getSpeed() * 0.845f);
+        infotaiment->setLastSpeed(infotaiment->getLastSpeed() + ((infotaiment->getSpeed() - infotaiment->getLastSpeed())/2));
+        painterSpeedPointer->rotate(infotaiment->getLastSpeed() * 0.00845f);
         speedPointerRenderer->render(painterSpeedPointer);
         painterSpeedPointer->end();
 
         rS++;
-        if(rS > 2){
+        if(rS > 4){
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
             rS = 0;
         }
