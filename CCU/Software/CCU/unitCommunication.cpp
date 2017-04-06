@@ -35,13 +35,11 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
 }
 
 
-QSerialPort *UnitCommunication::getDataIn_port()
-{
+QSerialPort *UnitCommunication::getDataIn_port(){
     return dataIn_port;
 }
 
-QSerialPort *UnitCommunication::getDataOut_port()
-{
+QSerialPort *UnitCommunication::getDataOut_port(){
     return dataOut_port;
 }
 
@@ -52,19 +50,19 @@ void UnitCommunication::readData(){
 
     if (dataIn_data.size() == 13){
 
-        b0 = static_cast<int>(dataIn_data[0]);
-        b1 = static_cast<int>(dataIn_data[1]);
-        b2 = static_cast<int>(dataIn_data[2]);
-        b3 = static_cast<int>(dataIn_data[3]);
-        b4 = static_cast<int>(dataIn_data[4]);
-        b5 = static_cast<int>(dataIn_data[5]);
-        b6 = static_cast<int>(dataIn_data[6]);
-        b7 = static_cast<int>(dataIn_data[7]);
-        b8 = static_cast<int>(dataIn_data[8]);
-        b9 = static_cast<int>(dataIn_data[9]);
-        b10 = static_cast<int>(dataIn_data[10]);
-        b11 = static_cast<int>(dataIn_data[11]);
-        b12 = static_cast<int>(dataIn_data[12]);
+        b0 = static_cast<uint8_t>(dataIn_data[0]);
+        b1 = static_cast<uint8_t>(dataIn_data[1]);
+        b2 = static_cast<uint8_t>(dataIn_data[2]);
+        b3 = static_cast<uint8_t>(dataIn_data[3]);
+        b4 = static_cast<uint8_t>(dataIn_data[4]);
+        b5 = static_cast<uint8_t>(dataIn_data[5]);
+        b6 = static_cast<uint8_t>(dataIn_data[6]);
+        b7 = static_cast<uint8_t>(dataIn_data[7]);
+        b8 = static_cast<uint8_t>(dataIn_data[8]);
+        b9 = static_cast<uint8_t>(dataIn_data[9]);
+        b10 = static_cast<uint8_t>(dataIn_data[10]);
+        b11 = static_cast<uint8_t>(dataIn_data[11]);
+        b12 = static_cast<uint8_t>(dataIn_data[12]);
         //qDebug() <<""<<"dataIn_buffer[" << dataIn_data.size() << "] "<< dataIn_data;
 
         //qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
@@ -120,7 +118,6 @@ void UnitCommunication::sendData(char sourceID,char reciverID, char dataLenght, 
 
 float UnitCommunication::merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1){
     float hexMerge = 0;
-
 
     QString secondHex2 = "";
     if (QString::number(h1,16).length()<2){

@@ -879,6 +879,8 @@ moc_cluster.cpp: /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
 		../CCU/unitCommunication.h \
 		../CCU/infotainment.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		../CCU/cluster.h \
 		moc_predefs.h \
 		/Users/cvaello/Qt/5.8/clang_64/bin/moc
@@ -1075,6 +1077,8 @@ main.o: ../CCU/main.cpp /Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/H
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
 		../CCU/unitCommunication.h \
 		../CCU/infotainment.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		../CCU/cameraStream.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/QCameraImageCapture \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimedia.framework/Headers/qcameraimagecapture.h \
@@ -1233,9 +1237,10 @@ cluster.o: ../CCU/cluster.cpp ../CCU/cluster.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtMultimediaWidgets.framework/Headers/qcameraviewfinder.h \
 		../CCU/unitCommunication.h \
 		../CCU/infotainment.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/cvaello/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDateTime \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cluster.o ../CCU/cluster.cpp
@@ -1536,6 +1541,8 @@ cameraStream.o: ../CCU/cameraStream.cpp ../CCU/cameraStream.h \
 
 unitCommunication.o: ../CCU/unitCommunication.cpp ../CCU/unitCommunication.h \
 		../CCU/infotainment.h \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QElapsedTimer \
+		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qelapsedtimer.h \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDebug \
 		/Users/cvaello/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o unitCommunication.o ../CCU/unitCommunication.cpp
