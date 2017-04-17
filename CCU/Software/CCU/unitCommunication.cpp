@@ -91,6 +91,9 @@ void UnitCommunication::readData(){
                 default:
                     break;
                 }
+            }else{
+
+                recanalizeMessage(dataIn_data);
             }
             dataIn_data = "";
         }else{
@@ -101,6 +104,9 @@ void UnitCommunication::readData(){
         //qDebug() << "Total messages: " <<  totalMessages << " // good: " << goodDataCounter << " // " << "bad: " << badDataCounter << "// error%: " << errorCal << " %";
     }
 
+
+}
+void UnitCommunication::recanalizeMessage(QByteArray message){
 
 }
 

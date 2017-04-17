@@ -226,7 +226,6 @@ DIST          = ../CCU/img/outiline.svg \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf \
-		../CCU/.qmake.stash \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf \
@@ -432,7 +431,6 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf \
@@ -619,7 +617,6 @@ Makefile: ../CCU/CCU.pro /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/qt_config.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/cvaello/Qt/5.8/clang_64/mkspecs/features/toolchain.prf:
@@ -698,7 +695,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r CCU.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 

@@ -46,7 +46,7 @@ private:
     int badDataCounter = 0;
 public slots:
     void sendData(char sourceID,char reciverID, char dataLenght, char rawData);
-
+    void recanalizeMessage(QByteArray msg);
 public:
     void readData();
     float merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1);
