@@ -27,8 +27,11 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
     //dataOut_port->open(QIODevice::WriteOnly);
 
     //dataIn_port->setPortName("/dev/cu.usbmodemFA131");
-    dataIn_port->setPortName("COM8");
+    dataIn_port->setPortName("COM16");
     dataIn_port->setBaudRate(115200);
+    qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
+    dataIn_port->clear();
+    dataIn_port->close();
     qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
     timer.start();
 
@@ -46,9 +49,9 @@ QSerialPort *UnitCommunication::getDataOut_port(){
 void UnitCommunication::readData(){
 
     dataIn_data = dataIn_port->readAll();
-    //qDebug() <<" : "<<"dataIn_buffer: [" << dataIn_data.size() << "] "<< dataIn_data;
+    qDebug() <<" : "<<"dataIn_buffer: [" << dataIn_data.size() << "] "<< dataIn_data;
 
-    if (dataIn_data.size() == 13){
+    if (dataIn_data.size() >= 13){
 
         b0 = static_cast<uint8_t>(dataIn_data[0]);
         b1 = static_cast<uint8_t>(dataIn_data[1]);
@@ -65,12 +68,13 @@ void UnitCommunication::readData(){
         b12 = static_cast<uint8_t>(dataIn_data[12]);
         //qDebug() <<""<<"dataIn_buffer[" << dataIn_data.size() << "] "<< dataIn_data;
 
-        //qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
-        //"/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
+        qDebug() <<  b0 << "/" <<  b1 << "/" <<  b2 << "/" <<  b3 << "/" <<  b4 << "/" <<  b5 <<
+        "/" <<  b6 << "/" <<  b7 << "/"<<  b8 << "/"<<  b9 << "/"<<  b10 << "//" <<  b11 << "/"<<  b12 << "/";
 
         ercSum = b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10;
 
         if(ercSum  ==  merge_2hex8b_TO1hex16b(b11,b12)){
+             qDebug() << "goodData";
             goodDataCounter++;
 
             if( b0 == 0){ // bit reciverID -> 0x00 means CCU
@@ -97,11 +101,13 @@ void UnitCommunication::readData(){
             }
             dataIn_data = "";
         }else{
+            qDebug() << "badData";
+
             badDataCounter++;
         }
-        //int totalMessages = (goodDataCounter + badDataCounter);
-        //float errorCal = (100* (float)badDataCounter) / (float)totalMessages;
-        //qDebug() << "Total messages: " <<  totalMessages << " // good: " << goodDataCounter << " // " << "bad: " << badDataCounter << "// error%: " << errorCal << " %";
+        int totalMessages = (goodDataCounter + badDataCounter);
+        float errorCal = (100* (float)badDataCounter) / (float)totalMessages;
+        qDebug() << "Total messages: " <<  totalMessages << " // good: " << goodDataCounter << " // " << "bad: " << badDataCounter << "// error%: " << errorCal << " %";
     }
 
 

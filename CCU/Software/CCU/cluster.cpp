@@ -133,7 +133,7 @@ void Cluster::paintEvent(QPaintEvent *)
         painterSpeedPointer->end();
 
         rS++;
-        if(rS > 4){
+        if(rS > 5){
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
             rS = 0;
         }
