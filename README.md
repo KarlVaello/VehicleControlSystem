@@ -5,7 +5,7 @@ In modern vehicles almost 80% of the vehicle is controlled electronically. That'
 VCS consists of several units and modules, all connected by CAN bus allowing modularization.
 In this project you will find both the hardware and the software of each unit or module.
 
-<img src="https://github.com/KarlVaello/VCS/blob/master/WiringDiagram.png"
+<img src="https://github.com/KarlVaello/VCS/blob/master/Documentation/WiringDiagram.png"
  alt="Wiring Diagram" title="Wiring Diagram" align="right" />
  Electronic control units / modules
  
