@@ -5,6 +5,19 @@ Code that allow you to test dual rs-458, one to read incoming data and one to wr
 void setup() {
   Serial1.begin(115200);
   Serial2.begin(115200);
+  pinMode(PC13,OUTPUT);
+  digitalWrite(PC13, LOW);   // turn the LED on (HIGH is the voltage level)
+  delay(300);              // wait for a second
+  digitalWrite(PC13, HIGH);    // turn the LED off by making the voltage LOW
+  delay(300);     
+  digitalWrite(PC13, LOW);   // turn the LED on (HIGH is the voltage level)
+  delay(300);              // wait for a second
+  digitalWrite(PC13, HIGH);    // turn the LED off by making the voltage LOW
+  delay(300);  
+  digitalWrite(PC13, LOW);   // turn the LED on (HIGH is the voltage level)
+  delay(300);              // wait for a second
+  digitalWrite(PC13, HIGH);    // turn the LED off by making the voltage LOW
+  delay(300);  
 }
 
 
