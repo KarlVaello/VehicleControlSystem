@@ -27,7 +27,7 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
     //dataOut_port->open(QIODevice::WriteOnly);
 
     //dataIn_port->setPortName("/dev/cu.usbmodemFA131");
-    dataIn_port->setPortName("COM10");
+    dataIn_port->setPortName("COM11");
     dataIn_port->setBaudRate(115200);
     qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
     dataIn_port->clear();
@@ -82,7 +82,7 @@ void UnitCommunication::readData(){
                 case 1:
                     switch (b2) {
                     case 0:
-                        infotaiment->setSpeed(merge_2hex8b_TO1hex16b(b4,b5));
+                        //infotaiment->setSpeed(merge_2hex8b_TO1hex16b(b4,b5));
                         break;
                     case 1:
                         break;

@@ -23,7 +23,7 @@ void setup() {
 
 void loop() {
 
-  sendDataMessage(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  sendDataMessage(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   delay(20);
 }
 
