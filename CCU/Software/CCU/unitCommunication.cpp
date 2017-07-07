@@ -13,6 +13,7 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
 
     qDebug() << "Number of ports: " << QSerialPortInfo::availablePorts().length() << "\n";
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
+        qDebug() << "Port Name: " << serialPortInfo.portName() << "\n";
         qDebug() << "Description: " << serialPortInfo.description() << "\n";
         qDebug() << "Has vendor id?: " << serialPortInfo.hasVendorIdentifier() << "\n";
         qDebug() << "Vendor ID: " << serialPortInfo.vendorIdentifier() << "\n";
@@ -27,7 +28,8 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
     //dataOut_port->open(QIODevice::WriteOnly);
 
     //dataIn_port->setPortName("/dev/cu.usbmodemFA131");
-    dataIn_port->setPortName("COM16");
+    dataIn_port->setPortName("tty.wchusbserialfa130");
+    //dataIn_port->setPortName("COM16");
     dataIn_port->setBaudRate(115200);
     qDebug() << "open: " << dataIn_port->open(QIODevice::ReadOnly);
     dataIn_port->clear();
