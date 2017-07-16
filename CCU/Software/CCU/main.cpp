@@ -16,7 +16,9 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     Infotainment *infotainment = new Infotainment();
+
     UnitCommunication *centralControlUnit_COM = new UnitCommunication(infotainment);
+    centralControlUnit_COM->startCom(infotainment);
     Cluster *cluster = new Cluster(0,centralControlUnit_COM,infotainment);
 
 

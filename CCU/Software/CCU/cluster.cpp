@@ -93,7 +93,7 @@ void Cluster::paintEvent(QPaintEvent *)
         speedLabel->setOpacity(postOpacity);
         speedLabel->setPen(QColor(220, 220, 220));
         speedLabel->setFont(QFont("LCDMono", 55));
-        speedLabel->drawText(QRect(580, 180 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
+        speedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
         speedLabel->end();
 
         painter_timeLabel->begin(this);
@@ -108,10 +108,9 @@ void Cluster::paintEvent(QPaintEvent *)
             currentSpeed = 0;
             qDebug() << "speedPointer_init_end";
         }
+        speedTry = 0;
 
-    }else{
-
-        centralControlUnit_COM->readData();
+     }else{
 
         painterOutline->begin(this);
         outlineRenderer->render(painterOutline);
@@ -132,16 +131,25 @@ void Cluster::paintEvent(QPaintEvent *)
         speedPointerRenderer->render(painterSpeedPointer);
         painterSpeedPointer->end();
 
-        rS++;
+        /*rS++;
         if(rS > 5){
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
             rS = 0;
+        }*/
+
+        if(infotaiment->getSpeed()<=28000){
+            infotaiment->setSpeed(speedTry);
+            speedTry = speedTry + 10;
+            currentLabelSpeed = (int)infotaiment->getSpeed()/100;
         }
+
         speedLabel->begin(this);
         speedLabel->setPen(QColor(220, 220, 220));
         speedLabel->setFont(QFont("LCDMono", 55));
-        speedLabel->drawText(QRect(580, 180 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
+        speedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
         speedLabel->end();
+
+
 
         //ntWidgetManager->getNotificationWidgetList().at(0)->show();
     }

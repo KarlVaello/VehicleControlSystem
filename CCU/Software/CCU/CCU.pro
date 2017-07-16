@@ -12,7 +12,8 @@ SOURCES += \
     cameraStream.cpp \
     unitCommunication.cpp \
     infotainment.cpp \
-    cameraCaptureBuffer.cpp
+    cameraCaptureBuffer.cpp \
+    propulsionCommunication.cpp
 
 DISTFILES += \
     img/outiline.svg \
@@ -27,7 +28,8 @@ HEADERS += \
     cameraStream.h \
     unitCommunication.h \
     infotainment.h \
-    cameraCaptureBuffer.h
+    cameraCaptureBuffer.h \
+    propulsionCommunication.h
 
 RESOURCES += \
     resources.qrc

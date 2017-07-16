@@ -36,6 +36,8 @@ private:
     QTime *time;
     QTimer *timer;
 
+    int speedTry;
+
     UnitCommunication *centralControlUnit_COM;
     Infotainment *infotaiment;
 
