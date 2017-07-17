@@ -1,10 +1,17 @@
+/*!
+    \class PropulsionCommunication
+    \brief The PropulsionCommunication class manage and proces all propulsion comunication (data in/out).
+*/
+
 #include "propulsionCommunication.h"
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
-
 #include <QTimer>
-
+/**
+ * @brief PropulsionCommunication::PropulsionCommunication
+ * @param parent
+ */
 PropulsionCommunication::PropulsionCommunication(QObject *parent) : QObject(parent)
 {
 
@@ -17,6 +24,11 @@ PropulsionCommunication::PropulsionCommunication(QObject *parent) : QObject(pare
 
 }
 
+/*!
+ * \brief PropulsionCommunication::start init all comunucation purpose
+ *
+ *
+ */
 void PropulsionCommunication::start()
 {
     timer = new QTimer();
@@ -27,7 +39,9 @@ void PropulsionCommunication::start()
 }
 
 
-
+/**
+ * @brief PropulsionCommunication::propulsionCom_readData
+ */
 void PropulsionCommunication::propulsionCom_readData(){
 
     propulsionCom_Read_data = propulsionCom_Read_port->readAll();
