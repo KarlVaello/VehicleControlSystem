@@ -11,13 +11,12 @@ class UnitCommunication{
 private:
 
     Infotainment *infotaiment;
-
     PropulsionCommunication *propulsionCom;
-
 
 public:
 
     UnitCommunication(Infotainment *infota);
+    void discoverComPorts();
     void startCom(Infotainment *infota);
 
 };

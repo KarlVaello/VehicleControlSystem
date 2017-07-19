@@ -1,8 +1,7 @@
-<RCC version="1.0">
-<qresource>
-    <file>img/outline.svg</file>
-    <file>img/speedPointer.svg</file>
-    <file>img/notificationBanner.svg</file>
-    <file>img/errorIcon.svg</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>img/outline.svg</file>
+        <file>img/speedPointer.svg</file>
+        <file>img/errorIcon.svg</file>
+    </qresource>
 </RCC>

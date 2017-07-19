@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 828.7 310.7" style="enable-background:new 0 0 828.7 310.7;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;stroke:#26A4C6;stroke-miterlimit:10;}
 	.st1{fill:none;stroke:#55E9F9;stroke-width:2;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#55E9F9;stroke-width:3;stroke-miterlimit:10;}
-	.st3{display:none;fill:none;stroke:#55E9F9;stroke-width:2;stroke-miterlimit:10;}
+	.st2{opacity:0.4;fill:#E4EDEF;}
+	.st3{opacity:0.4;fill:none;stroke:#E4EDEF;stroke-width:0.5;stroke-miterlimit:10;}
+	.st4{display:none;fill:none;stroke:#C45427;stroke-miterlimit:10;}
+	.st5{display:none;fill:none;stroke:#E4EDEF;stroke-width:3;stroke-miterlimit:10;}
+	.st6{display:none;}
+	.st7{display:inline;fill:none;stroke:#81AE38;stroke-miterlimit:10;}
 </style>
-<g id="Capa_13_1_">
-	<circle class="st0" cx="0.1" cy="-2.7" r="46.3"/>
-	<line class="st1" x1="-43.5" y1="20.7" x2="-96" y2="48.9"/>
-	<g id="Capa_14_1_">
-		<g>
-			<g>
-				
-					<image style="overflow:visible;" width="54.8" height="29.2" xlink:href="914361EA3CE02294.png"  transform="matrix(1 0 0 1 -96.6658 21.0559)"/>
-			</g>
-		</g>
-		<line class="st2" x1="-96" y1="48.9" x2="-44.4" y2="18.9"/>
-		<line class="st3" x1="-96" y1="48.9" x2="-42.5" y2="22.4"/>
-		<path class="st0" d="M-43.5,20.7c0,0-2.6-4.8-2.7-6.5c-0.2-1.8,1.4-6.4,1.4-6.4"/>
-		<path class="st0" d="M-43.5,20.7c0,0,2.6,4.8,3.9,5.8c1.4,1.2,6.2,2.4,6.2,2.4"/>
+<g id="Capa_1">
+	<circle class="st0" cx="0.1" cy="0.3" r="46.3"/>
+	<line class="st1" x1="-43.5" y1="23.5" x2="-95.7" y2="51.3"/>
+	<line class="st1" x1="-95.7" y1="51.3" x2="-44.4" y2="21.9"/>
+	<line class="st1" x1="-95.7" y1="51.3" x2="-42.7" y2="25.1"/>
+	<path class="st0" d="M-43.5,23.7c0,0-2.6-4.8-2.7-6.5c-0.2-1.8,1.4-6.4,1.4-6.4"/>
+	<path class="st0" d="M-43.5,23.7c0,0,2.6,4.8,3.9,5.8c1.4,1.2,6.2,2.4,6.2,2.4"/>
+	<path class="st2" d="M-40.6,9.8c1.7,7.1,5.3,13.7,10.4,19l0,0c-1.7-0.1-2.5-0.1-4.2-0.2c-3.7-4.5-6.6-9.6-8.3-15.2
+		C-41.8,12-41.4,11.2-40.6,9.8L-40.6,9.8"/>
+</g>
+<g id="Capa_4">
+	<circle class="st3" cx="0.1" cy="0.3" r="42"/>
+</g>
+<g id="Capa_1_copia">
+	<line class="st4" x1="0.1" y1="0.3" x2="-95.7" y2="51.3"/>
+	<path class="st5" d="M0-43.2"/>
+	<polyline class="st4" points="-42,10.2 0.1,0.3 -31.2,29.9 	"/>
+	<g id="Capa_3" class="st6">
+		<line class="st7" x1="0.1" y1="0.3" x2="0.1" y2="-46"/>
+		<line class="st7" x1="-46.2" y1="0.3" x2="46.4" y2="0.3"/>
+		<line class="st7" x1="0.1" y1="46.6" x2="0.1" y2="0.3"/>
 	</g>
 </g>
 </svg>

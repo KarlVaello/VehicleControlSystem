@@ -6,10 +6,7 @@
 #include <QtSvg/QtSvg>
 #include <QtSvg/QSvgRenderer>
 #include <cameraStream.h>
-
-
 #include <unitCommunication.h>
-
 #include <infotainment.h>
 
 int main(int argc, char *argv[])
@@ -19,8 +16,8 @@ int main(int argc, char *argv[])
 
     UnitCommunication *centralControlUnit_COM = new UnitCommunication(infotainment);
     centralControlUnit_COM->startCom(infotainment);
-    Cluster *cluster = new Cluster(0,centralControlUnit_COM,infotainment);
 
+    Cluster *cluster = new Cluster(0,centralControlUnit_COM,infotainment);
 
     //CameraStream *leftCamera = new CameraStream("left");
     //leftCamera->show();

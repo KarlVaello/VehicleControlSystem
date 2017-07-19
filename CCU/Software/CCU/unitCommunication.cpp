@@ -15,17 +15,20 @@ UnitCommunication::UnitCommunication(Infotainment *infota){
 
 void UnitCommunication::startCom(Infotainment *infota){
 
-
-    qDebug() << "Hey";
     infotaiment = infota;
 
     QThread* propulsionThread = new QThread();
 
-    propulsionCom = new PropulsionCommunication(0);
+    propulsionCom = new PropulsionCommunication(0, infotaiment);
 
     propulsionCom->moveToThread(propulsionThread);
     QObject::connect(propulsionThread, SIGNAL(started()), propulsionCom, SLOT(start()));
     propulsionThread->start();
+
+}
+
+
+void UnitCommunication::discoverComPorts(){
 
     qDebug() << "Number of ports: " << QSerialPortInfo::availablePorts().length() << "\n";
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
@@ -38,4 +41,5 @@ void UnitCommunication::startCom(Infotainment *infota){
     }
 
 }
+
 

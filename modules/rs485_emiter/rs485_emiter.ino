@@ -30,6 +30,10 @@ void loop() {
 
     sendDataMessage(0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     delay(40);
+    digitalWrite(PC13, LOW);   // turn the LED on (HIGH is the voltage level)
+    delay(300);              // wait for a second
+    digitalWrite(PC13, HIGH);    // turn the LED off by making the voltage LOW
+    delay(300);
 
 }
 

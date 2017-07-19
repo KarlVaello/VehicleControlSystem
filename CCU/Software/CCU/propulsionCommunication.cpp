@@ -8,39 +8,49 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
 #include <QTimer>
+#include <infotainment.h>
 /**
- * @brief PropulsionCommunication::PropulsionCommunication
- * @param parent
+ * \brief PropulsionCommunication::PropulsionCommunication
+ * \param parent = null
+ * \param infota Infotaiment pointer to get and set all data
  */
-PropulsionCommunication::PropulsionCommunication(QObject *parent) : QObject(parent)
+PropulsionCommunication::PropulsionCommunication(QObject *parent, Infotainment *infota) : QObject(parent)
 {
-
+    infotaiment = infota;
     qDebug() << "PropulsionCommunication Contructor";
-    //propulsionCom_Read_port->setPortName("tty.wchusbserialfa130");
-    //propulsionCom_Read_port->setBaudRate(115200);
-    //propulsionCom_Read_port->open(QIODevice::ReadOnly);
-    //qDebug() << "open: " << propulsionCom_Read_port->isOpen();
-    //propulsionCom_Read_port->clear();
-
 }
 
+
 /*!
- * \brief PropulsionCommunication::start init all comunucation purpose
- *
+ * \brief PropulsionCommunication::start init all port comunucation purpose
+ * If ports fail automatically reports a CRITICAL ERROR
  *
  */
 void PropulsionCommunication::start()
 {
-    timer = new QTimer();
-    timer->start(myTime);
-    qDebug() << "PropulsionCommunication start on a new Threat";
-    qDebug()<<QString("start work in time:%1").arg(myTime);
-    //connect(timer,SIGNAL(timeout()),this,SLOT(doWork()));
+    propulsionCom_Read_port = new QSerialPort();
+
+    propulsionCom_Read_port->setPortName("tty.wchusbserialfa130");
+    propulsionCom_Read_port->setBaudRate(115200);
+    propulsionCom_Read_port->open(QIODevice::ReadOnly);
+    propulsionCom_Read_port->setDataBits(QSerialPort::Data8);
+    qDebug() << "open: " << propulsionCom_Read_port->isOpen();
+    if(propulsionCom_Read_port->isOpen()){
+        propulsionCom_Read_port->clear();
+        timer = new QTimer();
+        timer->start(5); //5ns
+        connect(timer,SIGNAL(timeout()),this,SLOT(propulsionCom_readData()));
+    }else{
+        qDebug() << "CRITICAL ERROR: Propulsion communication not working";
+    }
 }
 
 
 /**
- * @brief PropulsionCommunication::propulsionCom_readData
+ * \brief PropulsionCommunication::propulsionCom_readData read all data incoming
+ *          from propulsion modules.
+ *        This function contains all decisions and manage all data from propulsion
+ *          modules.
  */
 void PropulsionCommunication::propulsionCom_readData(){
 
@@ -78,7 +88,8 @@ void PropulsionCommunication::propulsionCom_readData(){
                 case 1:
                     switch (pr_b2) {
                     case 0:
-                        //infotaiment->setSpeed(merge_2hex8b_TO1hex16b(b4,b5));
+                        infotaiment->setSpeed(merge_2hex8b_TO1hex16b(pr_b4,pr_b5));
+                        qDebug() << infotaiment->getSpeed();
                         break;
                     case 1:
                         break;
@@ -107,11 +118,16 @@ void PropulsionCommunication::propulsionCom_readData(){
     }
 }
 
-
 void PropulsionCommunication::recanalizeMessage(QByteArray message){
 
 }
-
+/*!
+ * \brief PropulsionCommunication::sendData
+ * \param sourceID
+ * \param reciverID
+ * \param dataLenght
+ * \param rawData
+ */
 void PropulsionCommunication::sendData(char sourceID,char reciverID, char dataLenght, char rawData){
 
     //buildData:
@@ -123,9 +139,15 @@ void PropulsionCommunication::sendData(char sourceID,char reciverID, char dataLe
     char *buildData = new char(sourceID);
     propulsionCom_Write_port->write(buildData,5);
 }
-
-
-
+/*!
+ * \brief PropulsionCommunication::merge_2hex8b_TO1hex16b merge two numbers
+ *          that normaly comes from an 16b hex and was separated on two 8b hex
+ *          to be transmited.
+ *        This return the original int (0-68000) that was split by for example a module.
+ * \param h0
+ * \param h1
+ * \return merged hexadecimal number
+ */
 float PropulsionCommunication::merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1){
     float hexMerge = 0;
 

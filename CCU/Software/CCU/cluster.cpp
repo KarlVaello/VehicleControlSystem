@@ -19,18 +19,19 @@ Cluster::Cluster(QWidget *parent , UnitCommunication *ccu_COM, Infotainment *inf
 
     infotaiment = infota;
     centralControlUnit_COM = ccu_COM;
+
     time = new QTime();
     timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(repaint()));
     timer->start(1);
     setWindowTitle(tr("VCS"));
 
     resize(1280, 480);
 
-    ntManager = new NotificationManager();
+    //ntManager = new NotificationManager();
 
-    ntWidgetManager = new NotificationWidgetManager();
-    qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
+    //ntWidgetManager = new NotificationWidgetManager();
+    //qDebug() << "Types:" << QString::number(ntManager->getNotificationList().count()) << "\n";
 
     /*if(!serialConnection){
 
@@ -45,17 +46,23 @@ Cluster::Cluster(QWidget *parent , UnitCommunication *ccu_COM, Infotainment *inf
 
     outlineRenderer = new QSvgRenderer(QString(":/img/outline.svg"));
     speedPointerRenderer = new QSvgRenderer(QString(":/img/speedPointer.svg"));
-    notificationBannerRenderer = new QSvgRenderer(QString(":/img/notificationBanner.svg"));
+
+
+
+
 }
 
 void Cluster::paintEvent(QPaintEvent *)
 {
+
     if(!isInitClusterAnim_outline && !isInitClusterAnim_speedPointer){
-        backGroundRect->begin(this);
+
+
+        QPainter *backGroundRect = new QPainter(this);
         backGroundRect->fillRect(QRect(0,0,1280,480),QColor(30,30,30,255));
         backGroundRect->end();
 
-        painterOutline->begin(this);
+        QPainter *painterOutline = new QPainter(this);
         outlineOpacity = outlineOpacity + 0.008f;
         painterOutline->setOpacity(outlineOpacity);
         outlineRenderer->render(painterOutline);
@@ -63,16 +70,16 @@ void Cluster::paintEvent(QPaintEvent *)
 
         if(outlineOpacity >= 1.0f){
             isInitClusterAnim_outline = true;
-            qDebug() << "outline_init_end";
+            //qDebug() << "outline_init_end";
         }
 
     }else if(isInitClusterAnim_outline && !isInitClusterAnim_speedPointer){
 
-        backGroundRect->begin(this);
+        QPainter *backGroundRect = new QPainter(this);
         backGroundRect->fillRect(QRect(0,0,1280,480),QColor(30,30,30,255));
         backGroundRect->end();
 
-        painterOutline->begin(this);
+        QPainter *painterOutline = new QPainter(this);
         outlineRenderer->render(painterOutline);
         painterOutline->end();
 
@@ -82,47 +89,47 @@ void Cluster::paintEvent(QPaintEvent *)
 
         postOpacity = postOpacity + 0.008f;
 
-        painterSpeedPointer->begin(this);
+        QPainter *painterSpeedPointer = new QPainter(this);
         painterSpeedPointer->setOpacity(postOpacity);
         painterSpeedPointer->translate(1280/2, 480/2);
         painterSpeedPointer->rotate((lastSpeed + ((currentSpeed - lastSpeed)/2)) * 0.845f);
         speedPointerRenderer->render(painterSpeedPointer);
         painterSpeedPointer->end();
 
-        speedLabel->begin(this);
-        speedLabel->setOpacity(postOpacity);
-        speedLabel->setPen(QColor(220, 220, 220));
-        speedLabel->setFont(QFont("LCDMono", 55));
-        speedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
-        speedLabel->end();
+        QPainter *painterSpeedLabel = new QPainter(this);
+        painterSpeedLabel->setOpacity(postOpacity);
+        painterSpeedLabel->setPen(QColor(220, 220, 220));
+        painterSpeedLabel->setFont(QFont("LCDMono", 55));
+        painterSpeedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
+        painterSpeedLabel->end();
 
-        painter_timeLabel->begin(this);
-        painter_timeLabel->setOpacity(postOpacity);
-        painter_timeLabel->setPen(QColor(220, 220, 220));
-        painter_timeLabel->setFont(QFont("LCDMono", 20));
-        painter_timeLabel->drawText(QRect(580, 30 ,120,30),time->currentTime().toString(), Qt::AlignHCenter | Qt::AlignVCenter);
-        painter_timeLabel->end();
+        QPainter *painterTimeLabel = new QPainter(this);
+        painterTimeLabel->setOpacity(postOpacity);
+        painterTimeLabel->setPen(QColor(220, 220, 220));
+        painterTimeLabel->setFont(QFont("LCDMono", 20));
+        painterTimeLabel->drawText(QRect(580, 30 ,120,30),time->currentTime().toString(), Qt::AlignHCenter | Qt::AlignVCenter);
+        painterTimeLabel->end();
 
         if(currentSpeed <= 0){
             isInitClusterAnim_speedPointer = true;
             currentSpeed = 0;
-            qDebug() << "speedPointer_init_end";
+            //qDebug() << "speedPointer_init_end";
         }
         speedTry = 0;
 
      }else{
 
-        painterOutline->begin(this);
+        QPainter *painterOutline = new QPainter(this);
         outlineRenderer->render(painterOutline);
         painterOutline->end();
 
-        painter_timeLabel->begin(this);
-        painter_timeLabel->setPen(QColor(220, 220, 220));
-        painter_timeLabel->setFont(QFont("LCDMono", 20));
-        painter_timeLabel->drawText(QRect(580, 30 ,120,30),time->currentTime().toString(), Qt::AlignHCenter | Qt::AlignVCenter);
-        painter_timeLabel->end();
+        QPainter *painterTimeLabel = new QPainter(this);
+        painterTimeLabel->setPen(QColor(220, 220, 220));
+        painterTimeLabel->setFont(QFont("LCDMono", 20));
+        painterTimeLabel->drawText(QRect(580, 30 ,120,30),time->currentTime().toString(), Qt::AlignHCenter | Qt::AlignVCenter);
+        painterTimeLabel->end();
 
-        painterSpeedPointer->begin(this);
+        QPainter *painterSpeedPointer = new QPainter(this);
         painterSpeedPointer->translate(1280/2, 480/2);
         //qDebug() << "LS:" << infotaiment->getLastSpeed() << " Sp:" << infotaiment->getSpeed() <<  " Lerp:" <<(infotaiment->getLastSpeed() + ((infotaiment->getSpeed() - infotaiment->getLastSpeed())/2));
 
@@ -132,22 +139,30 @@ void Cluster::paintEvent(QPaintEvent *)
         painterSpeedPointer->end();
 
         /*rS++;
-        if(rS > 5){
+        if(rS > 2){
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
             rS = 0;
         }*/
-
-        if(infotaiment->getSpeed()<=28000){
+        //infotaiment->setSpeed(21300);
+        qDebug() <<infotaiment->getSpeed();
+        if(infotaiment->getSpeed() < 28000){
             infotaiment->setSpeed(speedTry);
-            speedTry = speedTry + 10;
+            speedTry = speedTry + 100;
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
+
+            if(infotaiment->getSpeed() >= 28000){
+                infotaiment->setSpeed(0);
+                speedTry = 0;
+                qDebug()<<infotaiment->getSpeed();
+            }
+
         }
 
-        speedLabel->begin(this);
-        speedLabel->setPen(QColor(220, 220, 220));
-        speedLabel->setFont(QFont("LCDMono", 55));
-        speedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
-        speedLabel->end();
+        QPainter *painterSpeedLabel = new QPainter(this);
+        painterSpeedLabel->setPen(QColor(220, 220, 220));
+        painterSpeedLabel->setFont(QFont("LCDMono", 55));
+        painterSpeedLabel->drawText(QRect(580, 193 ,120,100),QString::number(currentLabelSpeed), Qt::AlignHCenter | Qt::AlignVCenter);
+        painterSpeedLabel->end();
 
 
 

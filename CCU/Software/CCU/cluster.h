@@ -41,18 +41,26 @@ private:
     UnitCommunication *centralControlUnit_COM;
     Infotainment *infotaiment;
 
-    QPainter *painterOutline = new QPainter (this);
+    /*QPainter *painterOutline;
+    QPainter *backGroundRect;
+    QPainter *painterSpeedPointer;
+    QPainter *speedLabel;
+    QPainter *notTitleLabel;
+    QPainter *notBanner;
+    QPainter *painter_timeLabel;*/
 
+
+   /* QPainter *painterOutline = new QPainter (this);
     QPainter *backGroundRect = new QPainter (this);
     QPainter *painterSpeedPointer = new QPainter (this);
     QPainter *speedLabel = new QPainter (this);
     QPainter *notTitleLabel = new QPainter (this);
     QPainter *notBanner = new QPainter (this);
     QPainter *painter_timeLabel = new QPainter (this);
+*/
 
     QSvgRenderer *outlineRenderer;
     QSvgRenderer *speedPointerRenderer;
-    QSvgRenderer *notificationBannerRenderer;
 
 
 

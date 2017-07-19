@@ -2,19 +2,23 @@
 #define PROPULSIONCOMMUNICATION_H
 
 #include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QDebug>
 #include <QTimer>
+#include <infotainment.h>
+
 
 class PropulsionCommunication: public QObject
 {
     Q_OBJECT
 private:
 
+    Infotainment *infotaiment;
+
     QTimer *timer;
 
     QSerialPort *propulsionCom_Read_port;
     QSerialPort *propulsionCom_Write_port;
-
-
 
     QByteArray propulsionCom_Read_data;
     QByteArray propulsionCom_Write_data;
@@ -44,14 +48,16 @@ private:
 public slots:
     //void doWork();
     void start();
+    void propulsionCom_readData();
 
 public:
-    PropulsionCommunication(QObject *parent = 0);
+    PropulsionCommunication(QObject *parent = 0, Infotainment *infota = 0);
 
     //explicit PropulsionCommunication(qint32,QObject *parent = 0);
     qint32 myTime;
 
-    void propulsionCom_readData();
+
+
     void sendData(char sourceID,char reciverID, char dataLenght, char rawData);
     void recanalizeMessage(QByteArray msg);
 

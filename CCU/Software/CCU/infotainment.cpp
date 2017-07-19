@@ -30,7 +30,4 @@ void Infotainment::setLastSpeed(int value)
     lastSpeed = value;
 }
 
-Infotainment::Infotainment()
-{
-
-}
+Infotainment::Infotainment(){}
