@@ -17,7 +17,7 @@ void UnitCommunication::startCom(Infotainment *infota){
 
     infotaiment = infota;
 
-    QThread* propulsionThread = new QThread();
+    QThread *propulsionThread = new QThread();
 
     propulsionCom = new PropulsionCommunication(0, infotaiment);
 

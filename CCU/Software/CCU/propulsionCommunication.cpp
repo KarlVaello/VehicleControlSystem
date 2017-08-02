@@ -9,10 +9,11 @@
 #include <QDebug>
 #include <QTimer>
 #include <infotainment.h>
+
 /**
- * \brief PropulsionCommunication::PropulsionCommunication
- * \param parent = null
- * \param infota Infotaiment pointer to get and set all data
+ * @brief PropulsionCommunication::PropulsionCommunication
+ * @param parent = null
+ * @param infota Infotaiment pointer to get and set all data
  */
 PropulsionCommunication::PropulsionCommunication(QObject *parent, Infotainment *infota) : QObject(parent)
 {
@@ -21,8 +22,8 @@ PropulsionCommunication::PropulsionCommunication(QObject *parent, Infotainment *
 }
 
 
-/*!
- * \brief PropulsionCommunication::start init all port comunucation purpose
+/**
+ * @brief PropulsionCommunication::start init all port comunucation purpose
  * If ports fail automatically reports a CRITICAL ERROR
  *
  */
@@ -35,6 +36,7 @@ void PropulsionCommunication::start()
     propulsionCom_Read_port->open(QIODevice::ReadOnly);
     propulsionCom_Read_port->setDataBits(QSerialPort::Data8);
     qDebug() << "open: " << propulsionCom_Read_port->isOpen();
+
     if(propulsionCom_Read_port->isOpen()){
         propulsionCom_Read_port->clear();
         timer = new QTimer();
@@ -42,12 +44,16 @@ void PropulsionCommunication::start()
         connect(timer,SIGNAL(timeout()),this,SLOT(propulsionCom_readData()));
     }else{
         qDebug() << "CRITICAL ERROR: Propulsion communication not working";
+        //connect(timer,SIGNAL(timeout()),this,SLOT(fin()));
+
     }
+
 }
 
 
 /**
- * \brief PropulsionCommunication::propulsionCom_readData read all data incoming
+ * @fn propulsionCom_readData()
+ * @brief PropulsionCommunication::propulsionCom_readData read all data incoming
  *          from propulsion modules.
  *        This function contains all decisions and manage all data from propulsion
  *          modules.
@@ -121,12 +127,12 @@ void PropulsionCommunication::propulsionCom_readData(){
 void PropulsionCommunication::recanalizeMessage(QByteArray message){
 
 }
-/*!
- * \brief PropulsionCommunication::sendData
- * \param sourceID
- * \param reciverID
- * \param dataLenght
- * \param rawData
+/**
+ * @brief PropulsionCommunication::sendData
+ * @param sourceID
+ * @param reciverID
+ * @param dataLenght
+ * @param rawData
  */
 void PropulsionCommunication::sendData(char sourceID,char reciverID, char dataLenght, char rawData){
 
@@ -139,14 +145,14 @@ void PropulsionCommunication::sendData(char sourceID,char reciverID, char dataLe
     char *buildData = new char(sourceID);
     propulsionCom_Write_port->write(buildData,5);
 }
-/*!
- * \brief PropulsionCommunication::merge_2hex8b_TO1hex16b merge two numbers
+/**
+ * @brief PropulsionCommunication::merge_2hex8b_TO1hex16b merge two numbers
  *          that normaly comes from an 16b hex and was separated on two 8b hex
  *          to be transmited.
  *        This return the original int (0-68000) that was split by for example a module.
- * \param h0
- * \param h1
- * \return merged hexadecimal number
+ * @param h0
+ * @param h1
+ * @return merged hexadecimal number
  */
 float PropulsionCommunication::merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1){
     float hexMerge = 0;

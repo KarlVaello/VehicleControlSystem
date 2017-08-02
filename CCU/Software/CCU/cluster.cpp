@@ -138,13 +138,14 @@ void Cluster::paintEvent(QPaintEvent *)
         speedPointerRenderer->render(painterSpeedPointer);
         painterSpeedPointer->end();
 
-        /*rS++;
+        rS++;
         if(rS > 2){
             currentLabelSpeed = (int)infotaiment->getSpeed()/100;
             rS = 0;
-        }*/
+        }
+
         //infotaiment->setSpeed(21300);
-        qDebug() <<infotaiment->getSpeed();
+        /*qDebug() <<infotaiment->getSpeed();
         if(infotaiment->getSpeed() < 28000){
             infotaiment->setSpeed(speedTry);
             speedTry = speedTry + 100;
@@ -156,7 +157,7 @@ void Cluster::paintEvent(QPaintEvent *)
                 qDebug()<<infotaiment->getSpeed();
             }
 
-        }
+        }*/
 
         QPainter *painterSpeedLabel = new QPainter(this);
         painterSpeedLabel->setPen(QColor(220, 220, 220));
