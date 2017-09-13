@@ -15,6 +15,7 @@ SOURCES += \
     cameraCaptureBuffer.cpp \
     propulsionCommunication.cpp
 
+
 DISTFILES += \
     img/outiline.svg \
     img/speedPointer.svg
