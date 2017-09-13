@@ -73,7 +73,7 @@ void Cluster::paintEvent(QPaintEvent *)
             //qDebug() << "outline_init_end";
         }
 
-    }else if(isInitClusterAnim_outline && !isInitClusterAnim_speedPointer){
+    } else if(isInitClusterAnim_outline && !isInitClusterAnim_speedPointer){
 
         QPainter *backGroundRect = new QPainter(this);
         backGroundRect->fillRect(QRect(0,0,1280,480),QColor(30,30,30,255));

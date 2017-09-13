@@ -57,6 +57,7 @@ void PropulsionCommunication::start()
  *          from propulsion modules.
  *        This function contains all decisions and manage all data from propulsion
  *          modules.
+ *
  */
 void PropulsionCommunication::propulsionCom_readData(){
 
@@ -127,6 +128,7 @@ void PropulsionCommunication::propulsionCom_readData(){
 void PropulsionCommunication::recanalizeMessage(QByteArray message){
 
 }
+
 /**
  * @brief PropulsionCommunication::sendData
  * @param sourceID
@@ -145,6 +147,7 @@ void PropulsionCommunication::sendData(char sourceID,char reciverID, char dataLe
     char *buildData = new char(sourceID);
     propulsionCom_Write_port->write(buildData,5);
 }
+
 /**
  * @brief PropulsionCommunication::merge_2hex8b_TO1hex16b merge two numbers
  *          that normaly comes from an 16b hex and was separated on two 8b hex
@@ -169,4 +172,3 @@ float PropulsionCommunication::merge_2hex8b_TO1hex16b(uint8_t h0 , uint8_t h1){
 
     return hexMerge;
 }
-
