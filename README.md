@@ -33,7 +33,10 @@ MODULES:
  alt="Wiring Diagram" title="Wiring Diagram" width = 400 height=350 align="center" />
  
 
-
+BASE MODULE
+<img src="https://github.com/KarlVaello/VCS/blob/modules/Documents/ScreenShots/BaseModule_3d.PNG"
+ alt="Wiring Diagram" title="Wiring Diagram" width = 400 height=350 align="center" />
+ 
 # Full Documentation
 
 See the Wiki for full documentation, examples, operational details and other information.
