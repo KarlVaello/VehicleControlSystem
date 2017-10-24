@@ -34,8 +34,9 @@ MODULES:
  
 
 BASE MODULE
-<img src="https://github.com/KarlVaello/VCS/blob/modules/Documents/ScreenShots/BaseModule_3d.PNG"
- alt="Wiring Diagram" title="Wiring Diagram" width = 400 height=350 align="center" />
+
+<img src="https://github.com/KarlVaello/VCS/blob/master/modules/Documents/ScreenShots/BaseModule_3d.PNG"
+ alt="Base Module 3d" title="Base Module 3d"  align="center" />
  
 # Full Documentation
 
