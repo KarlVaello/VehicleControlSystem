@@ -88,6 +88,52 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Conn_01x01
+#
+DEF Conn_01x01 J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Conn_01x01" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -50 1 1 10 f
+X Pin_1 1 -200 0 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Conn_01x02
+#
+DEF Conn_01x02 J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Conn_01x02" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -150 1 1 10 f
+X Pin_1 1 -200 0 150 R 50 50 1 1 P
+X Pin_2 2 -200 -100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Conn_01x02_Male
 #
 DEF Conn_01x02_Male J 0 40 Y N 1 F N
@@ -278,11 +324,11 @@ X 2 2 150 0 50 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# DB9_Female_MountingHoles
+# DB9_Female
 #
-DEF DB9_Female_MountingHoles J 0 40 Y N 1 F N
-F0 "J" 0 650 50 H V C CNN
-F1 "DB9_Female_MountingHoles" 0 575 50 H V C CNN
+DEF DB9_Female J 0 40 Y N 1 F N
+F0 "J" 0 550 50 H V C CNN
+F1 "DB9_Female" 0 -575 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -308,7 +354,6 @@ P 2 0 1 0 -150 200 -100 200 N
 P 2 0 1 0 -150 300 20 300 N
 P 2 0 1 0 -150 400 -100 400 N
 P 5 0 1 10 -150 525 -150 -525 150 -375 150 375 -150 525 f
-X PAD 0 0 -600 150 U 50 50 1 1 P
 X 1 1 -300 400 150 R 50 50 1 1 P
 X 2 2 -300 200 150 R 50 50 1 1 P
 X 3 3 -300 0 150 R 50 50 1 1 P
