@@ -29,9 +29,7 @@ MODULES:
 
 ![Alt text](/Screenshots/cluster.PNG?raw=true "Wiring Diagram")
 
-<img src="https://github.com/KarlVaello/VCS/blob/master/Screenshots/UISketching.png"
- alt="Wiring Diagram" title="Wiring Diagram" width = 400 height=350 align="center" />
- 
+
 
 BASE MODULE
 
