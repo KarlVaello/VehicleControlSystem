@@ -52,9 +52,10 @@
 
  ### TO DO (Hardware):
 
- - [X] BaseBoard planning
- - [ ] BaseBoard Schematic
- - [ ] BaseBoard Board
- - [ ] FULL BaseBoard design
- - [ ] BaseBoard test PCB (asssembled and tested)
- - [ ] BaseBoard FINAL PCB (asssembled and tested)
+ - [X] BaseBoard planning (v1.0)
+ - [X] BaseBoard Schematic(v1.0)
+ - [X] BaseBoard Board(v1.0)
+ - [X] FULL BaseBoard design(v1.0)
+ - [ ] BaseBoard test PCB (asssembled and tested)(v1.0)
+ - [ ] BaseBoard FINAL PCB (asssembled and tested)(v1.0)
+ 
